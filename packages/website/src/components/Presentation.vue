@@ -9,11 +9,64 @@
     </transition>
 
     <div class="test">
-      <button class="test-button" @click="test_next">Test</button>
-      <button class="test-button" @click="test_reset">Reset</button>
+      <button @click="test_next">Test</button>
+      <button @click="test_reset">Reset</button>
     </div>
 
-    <Code />
+    <Code
+      code="
+// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+      "
+      language="javascript"/>
   </div>
 </template>
 
@@ -27,7 +80,7 @@ export default {
     Modal,
     Code
   },
-  props: [ 'code', 'sequence' ],
+  props: ['code', 'language', 'sequence'],
   data: function () {
     return {
       modals: {
@@ -112,12 +165,6 @@ export default {
    left: 15px;
    width: auto;
    height: auto;
-}
-.test-button {
-  padding: 5px 10px;
-  font-weight: bold;
-  font-size: 25px;
-  text-transform: uppercase;
 }
 
 .bounce-enter-active {
