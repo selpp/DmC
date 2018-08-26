@@ -65,6 +65,20 @@ let tester = function (params) {
     console.log(params[i]);
   }
 };
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
+
+// TEST
+let tester = function (params) {
+  for (let i in params) {
+    console.log(params[i]);
+  }
+};
       "
       language="javascript"/>
   </div>

@@ -8,6 +8,7 @@ import VueHighlightJS from 'vue-highlightjs'
 Vue.config.productionTip = false
 
 Vue.use(VueHighlightJS)
+import 'highlight.js/styles/atom-one-dark.css'
 
 /* eslint-disable no-new */
 new Vue({
