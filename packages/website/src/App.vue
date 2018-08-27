@@ -42,15 +42,14 @@ button:hover {
 }
 
 ::-webkit-scrollbar {
+  background: #282b32;
   width: 10px;
 }
-::-webkit-scrollbar {
-  background: #c4c9d4;
-}
 ::-webkit-scrollbar-thumb {
-  background: #282b32;
+  background: #c4c9d4;
+  border-radius: 50px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d1f25;
+  background: #969dad;
 }
 </style>

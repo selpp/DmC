@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .modal {
-  z-index: 10;
+  z-index: 20;
   position: fixed;
   margin: auto;
   display: flex;
