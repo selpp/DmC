@@ -25,7 +25,10 @@ import { bus } from '@/bus/bus';
 
 export default {
   name: 'Code',
-  props: [ 'highlights', 'code', 'lines' ],
+  props: [ 'highlights', 'code'],
+  computed: {
+    lines: { get: function() { return this.code.split('\n'); } }
+  },
   data: function() {
     return {
       highlight: { opacity: 0 },
@@ -47,17 +50,15 @@ export default {
       return this.hidden;
     },
     move_to: function(index) {
-      if(index === this.last_move) return;
-      this.last_move = index;
-
-      if(this.cancellScroll != null) this.cancellScroll();
-      this.cancellScroll = this.$scrollTo('#line' + index, 500, this.options);
+      if(index != this.last_move) {
+        this.last_move = index;
+        if(this.cancellScroll != null) this.cancellScroll();
+        this.cancellScroll = this.$scrollTo('#line' + index, 500, this.options);
+      }
     }
   },
   created: function() {
-    bus.$on('move-to-line', index => {
-      this.move_to(index);
-    });
+    bus.$on('move-to-line', index => { this.move_to(index); });
   }
 }
 </script>

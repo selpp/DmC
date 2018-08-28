@@ -1,19 +1,20 @@
 <template>
   <div class="modal">
     <div class='modal-content'>
-      <h1 v-if="type === 'HEADER 1'">{{ content }}</h1>
-      <h2 v-if="type === 'HEADER 2'">{{ content }}</h2>
-      <h3 v-if="type === 'HEADER 3'">{{ content }}</h3>
-      <h4 v-if="type === 'HEADER 4'">{{ content }}</h4>
-      <h5 v-if="type === 'HEADER 5'">{{ content }}</h5>
-      <h6 v-if="type === 'HEADER 6'">{{ content }}</h6>
+      <h1 v-if="modal.type == 'HEADER 1'">{{ modal.content }}</h1>
+      <h2 v-if="modal.type == 'HEADER 2'">{{ modal.content }}</h2>
+      <h3 v-if="modal.type == 'HEADER 3'">{{ modal.content }}</h3>
+      <h4 v-if="modal.type == 'HEADER 4'">{{ modal.content }}</h4>
+      <h5 v-if="modal.type == 'HEADER 5'">{{ modal.content }}</h5>
+      <h6 v-if="modal.type == 'HEADER 6'">{{ modal.content }}</h6>
 
-      <div v-if="type === 'INFO'" class='modal-content-info'>
-        <p v-for="(p, index) in content" :key="index">{{ p }}</p>
-      </div>
+      <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
 
-      <img v-if="type === 'IMAGE'" v-bind:src="content"/>
-      <iframe v-if="type === 'VIDEO'" width="800" height="600" v-bind:src="content"></iframe>
+      <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
+
+      <iframe v-if="modal.type == 'YOUTUBE'" width="800" height="600"
+        v-bind:src="'https://www.youtube.com/embed/' + modal.content">
+      </iframe>
     </div>
   </div>
 </template>
@@ -21,7 +22,7 @@
 <script>
 export default {
   name: 'Modal',
-  props: [ 'type', 'content' ]
+  props: [ 'modal' ]
 }
 </script>
 
@@ -29,6 +30,8 @@ export default {
 .modal {
   z-index: 20;
   position: fixed;
+  top: 0;
+  left: 0;
   margin: auto;
   display: flex;
   align-items: center;
@@ -51,6 +54,14 @@ export default {
 
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+}
+
+pre {
+  width: 70%;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  white-space: pre-wrap;
 }
 
 h1 {
@@ -112,13 +123,6 @@ h6 {
   border-style: solid;
   border-width: 10px;
   border-color: #1996a7;
-}
-
-.modal-content-info {
-  width: 70%;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 25px;
 }
 
 img {

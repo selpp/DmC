@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -39,6 +39,9 @@ button:hover {
   border-style: solid;
   border-width: 10px;
   border-color: #3e19a7;
+}
+button:focus {
+  outline: none;
 }
 
 ::-webkit-scrollbar {
