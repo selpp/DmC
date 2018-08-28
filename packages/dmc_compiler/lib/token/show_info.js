@@ -33,10 +33,16 @@ let parse = (structured_lines, tokens_l, cursor) => {
       }
 
       if(content == '') success = false;
-      else tokens_l.push(create(content));
+      else {
+        tokens_l.push(create(content));
+        tokens_l.push({ type: 'WAIT' });
+      }
     }
   }
-  else tokens_l.push(create(sl_content));
+  else {
+    tokens_l.push(create(sl_content));
+    tokens_l.push({ type: 'WAIT' });
+  }
 
   return {
     sucess: success,

@@ -28,6 +28,7 @@ function example () {
   let path = './example.dmc';
   let success, code = read_file(path);
   let res = parser.parse(code);
+  console.log('SEQUENCE:\n', JSON.stringify(res.sequences, null, 2), '\n');
   play(res);
 };
 example();

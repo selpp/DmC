@@ -21,7 +21,10 @@ let parse = (structured_lines, tokens_l, cursor) => {
   { sl_content = sl_content.substr(command.length); lvl++; }
 
   if(lvl == 0 || sl_content == '') success = false;
-  else tokens_l.push(create(lvl, sl_content.trim()));
+  else {
+    tokens_l.push(create(lvl, sl_content.trim()));
+    tokens_l.push({ type: 'WAIT' });
+  }
 
   return {
     sucess: success,

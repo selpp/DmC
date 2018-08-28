@@ -1,4 +1,4 @@
-let command = 'show image';
+let command = 'show image ';
 
 let create = (url) => {
   return {
@@ -17,7 +17,10 @@ let parse = (structured_lines, tokens_l, cursor) => {
   sl_content = sl_content.substr(command.length).trim();
 
   if(sl_content == '') sucess = false;
-  else tokens_l.push(create(sl_content));
+  else {
+    tokens_l.push(create(sl_content));
+    tokens_l.push({ type: 'WAIT' });
+  }
 
   return {
     sucess: success,

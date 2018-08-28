@@ -1,4 +1,4 @@
-let command = 'show line';
+let command = 'show line ';
 
 let create = (from, to) => {
   return {

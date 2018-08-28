@@ -1,0 +1,44 @@
+move to line 0
+# DMC TUTORIAL
+wait
+show info You can move forward pressing the D key on your keyword or backward with Q...
+wait
+show info This tutorial will show you the basics of DmC code presentation tool. Enjoy!
+
+move to line 2
+## THE CODE
+wait
+show line 2 to 52
+show info DmC can move to a specific line and amphasis a set of lines.
+
+move to line 4
+### PART 1
+wait
+show line 4 to 29
+move to line 6
+wait
+show info Add info here to explain PART 1!
+
+move to line 32
+### PART 2
+wait
+show line 32 to 52
+move to line 34
+wait
+show info Add info here to explain PART 2!
+
+move to line 0
+show line 0 to 0
+###### APPENDIX
+wait
+show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg
+wait
+show youtube hVEPXzve5EY
+
+#THE END
+
+// COMMENT
+/*
+ MULTI LINE
+ COMMENT
+*/

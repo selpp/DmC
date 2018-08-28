@@ -1,4 +1,4 @@
-let command = 'move to line';
+let command = 'move to line ';
 
 let create = (to) => {
   return {

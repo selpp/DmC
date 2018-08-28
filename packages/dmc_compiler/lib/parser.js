@@ -49,9 +49,11 @@ let sequencer = (tokens) => {
   let t = 0; let s = 0;
   while(t < tokens.length) {
     let token = tokens[t]; let type = token.type;
-    if(t != 0 && (type == 'HEADER' || type == 'WAIT')) s++;
+    if(t != 0 && type == 'WAIT') s++;
+    if((s - 1) in sequences && sequences[s - 1].length < 1) s--;
     if(sequences[s] == null) sequences[s] = [];
-    sequences[s].push(token); t++;
+    if(token.type != 'WAIT') sequences[s].push(token);
+    t++;
   }
   return sequences;
 };

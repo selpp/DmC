@@ -11,10 +11,10 @@
       <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
 
       <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
+      <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content">{{ modal.content }}</a>
 
-      <iframe v-if="modal.type == 'YOUTUBE'" width="800" height="600"
-        v-bind:src="'https://www.youtube.com/embed/' + modal.content">
-      </iframe>
+      <iframe v-if="modal.type == 'YOUTUBE'" width="800" height="600" v-bind:src="'https://www.youtube.com/embed/' + modal.content"> </iframe>
+      <a v-if="modal.type == 'YOUTUBE'" v-bind:href="'https://www.youtube.com/watch?v=' + modal.content">{{ 'https://www.youtube.com/watch?v=' + modal.content }}</a>
     </div>
   </div>
 </template>
@@ -54,6 +54,17 @@ export default {
 
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(25, 150, 167, 0.5);
+  margin-top: 25px;
+  font-size: 10px;
+  transition: 0.4s;
+}
+a:hover {
+  color: rgba(19, 106, 119, 0.5);
 }
 
 pre {

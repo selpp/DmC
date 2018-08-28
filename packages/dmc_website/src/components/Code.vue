@@ -1,9 +1,9 @@
 <template>
-  <div class="code">
+  <div id="top" class="code">
     <section>
       <pre v-highlightjs>
         <code id="code">
-          {{ code }}
+          {{ '\n' + code }}
         </code>
       </pre>
 
@@ -36,9 +36,9 @@ export default {
       last_move: null,
       cancellScroll: null,
       options: {
-        container: null, easing: 'ease', offset: -200, cancelable: true,
-        onStart: function(element) {}, onDone: function(element) {}, onCancel: function() {},
-        x: false, y: true
+        container: 'html', easing: 'ease', cancelable: true,
+        offset: 0, x: false, y: true,
+        onStart: element => {}, onDone: element => {}, onCancel: element => {}
       }
     }
   },

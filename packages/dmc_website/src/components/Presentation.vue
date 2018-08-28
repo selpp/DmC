@@ -4,12 +4,6 @@
       <Modal v-if="modal != null" v-bind:modal="modal" />
     </transition>
 
-    <div class="test">
-      <button @click="test_open_modal">O MODAL</button>
-      <button @click="test_reset_modals">X MODAL</button>
-      <button @click="test_scroll_emphasis">MOVE & EMPHASIS</button>
-    </div>
-
     <Code v-bind:highlights="highlights" v-bind:code="code"/>
   </div>
 </template>
@@ -25,42 +19,71 @@ export default {
   props: [ 'sequences', 'code' ],
   data: function() {
     return {
-      highlights: null,
-      modal: null
+      highlights: null, modal: null,
+      s_id: -2, a_id: 0, processing: true
     };
+  },
+  mounted: function() {
+    this.sequences[-1] = [
+      { type: 'HEADER', params: { lvl: 1, content: 'DMC ADVICES' } },
+      { type: 'SHOW INFO', params: { content: 'To allow the best experience possible please use Google Chrome or Safari as your web browser.' } },
+      { type: 'SHOW INFO', params: { content: 'For Google Chrome you may need to enbale \'Experimental Web Platform features\'.' } },
+      { type: 'SHOW INFO', params: { content: 'To do so, go to the \'chrome://flags\' url.' } },
+      { type: 'SHOW INFO', params: { content: 'Thanks for choosing DmC as your code presentation tool!' } },
+      { type: 'SHOW INFO', params: { content: 'Press \'F11\' to toggle fullscreen mode and \'D\' to continue...' } },
+    ]
+    this.do_next();
+
+    window.addEventListener('keypress', e => {
+      let key = String.fromCharCode(e.keyCode).toUpperCase();
+      if(this.processing == false){
+        switch (key) {
+          case 'D': this.processing = true; this.do_next(); break;
+          case 'Q': this.processing = true; this.do_previous(); break;
+          default: break;
+        }
+      }
+    });
   },
   methods: {
     move_to: function(index) { bus.$emit('move-to-line', index); },
     set_highlights: function(a, b) { this.highlights = { a: a, b: b }; },
     reset_highlights: function() { this.highlights = null; },
-    set_modal: function(modal) { this.modal = modal; },
-    reset_modals: function() { this.modal = null; },
+    set_modal: function(modal) { setTimeout(() => { this.modal = modal; }, 500) },
+    reset_modal: function() { this.modal = null; },
+    reset_all: function() { this.reset_modal(); this.reset_highlights(); },
 
-    // TEST FUNCTIONS TODO: REMOVE
-    test_open_modal: function() {
-      let modals = [
-        { type: 'HEADER 1', content: 'Header 1', show: false },
-        { type: 'HEADER 2', content: 'Header 2', show: false },
-        { type: 'HEADER 3', content: 'Header 3', show: false },
-        { type: 'HEADER 4', content: 'Header 4', show: false },
-        { type: 'HEADER 5', content: 'Header 5', show: false },
-        { type: 'HEADER 6', content: 'Header 6', show: false },
-        { type: 'INFO', content: 'labore irure quae minim export quid quae quid esse irure illum veniam tempor aliqua legam dolor fore eram labore fore duis export eram elit minim esse noster\n\tvelit culpa amet magna nulla summis malis minim dolore velit export export\n\tmultos fore malis malis multos veniam labore anim quorum quae dolore', show: false },
-        { type: 'IMAGE', content: 'https://pre00.deviantart.net/5943/th/pre/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg', show: false },
-        { type: 'YOUTUBE', content: 'hVEPXzve5EY', show: false }
-      ];
-      let n = Math.floor(Math.random() * modals.length);
-      this.set_modal(modals[n]);
+    do_action(s_id, a_id) {
+      if(a_id >= this.sequences[s_id].length) this.processing = false;
+      else {
+        let action = this.sequences[s_id][a_id];
+        switch (action.type) {
+          case 'HEADER': this.reset_modal(); this.set_modal({ type: 'HEADER ' + action.params.lvl, content: action.params.content }); break;
+          case 'SHOW INFO': this.reset_modal(); this.set_modal({ type: 'INFO', content: action.params.content }); break;
+          case 'SHOW IMAGE': this.reset_modal(); this.set_modal({ type: 'IMAGE', content: action.params.url }); break;
+          case 'SHOW YOUTUBE': this.reset_modal(); this.set_modal({ type: 'YOUTUBE', content: action.params.url }); break;
+          case 'SHOW LINES': this.reset_all(); this.set_highlights(action.params.from, action.params.to); break;
+          case 'MOVE TO': this.reset_modal(); this.move_to(action.params.to); break;
+        }
+        let time = (s_id == -1 && a_id != this.sequences[s_id].length - 1)? 4000: 0;
+        setTimeout(() => { this.do_action(s_id, a_id + 1); }, time);
+      }
     },
-    test_reset_modals: function() {
-      this.reset_modals();
+    do_sequence(s_id) {
+      if(this.sequences[s_id].length > 0) this.do_action(s_id, 0);
+      else this.processing = false;
     },
-    test_scroll_emphasis: function() {
-      let ns = [1, 6, 11, 16, 21, 26, 31, 36];
-      let n = Math.floor(Math.random() * ns.length);
-      let line = ns[n]; let to_line = line + 4;
-      this.set_highlights(line, to_line);
-      return this.move_to(line);
+    do_next() {
+      if((this.s_id + 1) in this.sequences) {
+        // this.reset_all();
+        this.s_id++; this.do_sequence(this.s_id);
+      } else this.processing = false;
+    },
+    do_previous() {
+      if(this.s_id > -1) {
+        // this.reset_all();
+        this.s_id--; this.do_sequence(this.s_id);
+      } else this.processing = false;
     }
   }
 }
