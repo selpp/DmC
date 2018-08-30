@@ -20,14 +20,18 @@
 </template>
 
 <script>
+const MODAL_SOUND = new Audio(require('../assets/modal.wav'));
+
 export default {
   name: 'Modal',
-  props: [ 'modal' ]
+  props: [ 'modal' ],
+  mounted: function() { MODAL_SOUND.play(); }
 }
 </script>
 
 <style scoped>
 .modal {
+  pointer-events:none;
   z-index: 20;
   position: fixed;
   top: 0;

@@ -2,7 +2,7 @@ let command = 'show line ';
 
 let create = (from, to) => {
   return {
-    type: 'SHOW LINES',
+    type: 'SHOW LINE',
     params: {
       from: from,
       to: to
@@ -17,16 +17,21 @@ let parse = (structured_lines, tokens_l, cursor) => {
   let sl_content = sl.content;
   sl_content = sl_content.substr(command.length).trim();
 
-  if(sl_content.length == '' || !sl_content.includes(' to ')) success = false;
+  if(sl_content == '') success = false;
   else {
     let params = sl_content.split(' ');
-    if(params.length < 3) success = false;
-    else {
+    if(params.length == 1) {
+      let from = parseInt(params[0]);
+      if(from == null) success = false;
+      else tokens_l.push(create(from, null));
+    }
+    else if(params.length == 3) {
       let from = parseInt(params[0]);
       let to = parseInt(params[2]);
-      if(from == null || to == null) sucess = false;
+      if(params[1] != 'to' || from == null || to == null) success = false;
       else tokens_l.push(create(from, to));
     }
+    else success = false;
   }
 
   return {

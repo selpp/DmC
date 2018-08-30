@@ -5,16 +5,25 @@ import App from './App'
 import router from './router'
 import VueHighlightJS from 'vue-highlightjs'
 import 'highlight.js/styles/atom-one-dark.css'
-import vueScrollto from 'vue-scrollto'
+import Vuex from 'vuex'
 
 
 Vue.config.productionTip = false
 
 Vue.use(VueHighlightJS)
-Vue.use(vueScrollto)
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+  state: { source: null, script: null },
+  mutations: {
+    set_source (state, payload) { state.source = payload.value; },
+    set_script (state, payload) { state.script = payload.value; }
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
+  store: store,
   el: '#app',
   router,
   components: { App },

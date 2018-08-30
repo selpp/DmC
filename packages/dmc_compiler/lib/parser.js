@@ -55,6 +55,9 @@ let sequencer = (tokens) => {
     if(token.type != 'WAIT') sequences[s].push(token);
     t++;
   }
+
+  if(sequences[Object.keys(sequences).length - 1].length == 0)
+    delete sequences[Object.keys(sequences).length - 1];
   return sequences;
 };
 

@@ -1,5 +1,4 @@
 let tuto_js = '' +
-'\n' +
 '// USELESS JS FILE\n' +
 '\n' +
 '// ======== PART 1 ========\n' +
@@ -51,45 +50,184 @@ let tuto_js = '' +
 'let a9 = function(params) {\n' +
 '  return params;\n' +
 '};\n' +
+'\n' +
 '\n';
 
-let tuto_dmc = '' +
-'# DMC EXAMPLE\n' +
-'move to line 0\n' +
-'show info You can move forward pressing the D key on your keyword or backward with Q...\n' +
-'show info This tutorial will show you the basics of DmC code presentation tool. Enjoy!\n' +
-'\n' +
-'## THE CODE\n' +
-'move to line 2\n' +
-'show line 2 to 52\n' +
-'wait \n' +
-'show info DmC can move to a specific line and amphasis a set of lines.\n' +
-'\n' +
-'### PART 1\n' +
-'move to line 4\n' +
-'show line 4 to 29\n' +
-'wait \n' +
-'show info Add info here to explain PART 1!\n' +
-'\n' +
-'### PART 2\n' +
-'move to line 32\n' +
-'show line 32 to 52\n' +
-'wait \n' +
-'show info Add info here to explain PART 2!\n' +
-'\n' +
-'###### APPENDIX\n' +
-'move to line 0\n' +
-'show line 0 to 0\n' +
-'show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg\n' +
-'show youtube hVEPXzve5EY\n' +
-'\n' +
-'#THE END\n' +
-'\n' +
-'// COMMENT\n' +
-'/*\n' +
-' MULTI LINE\n' +
-' COMMENT\n' +
-'*/\n' +
-'\n';
+let tuto_dmc = {
+  "0": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 1,
+        "content": "DMC EXAMPLE"
+      }
+    }
+  ],
+  "1": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 0
+      }
+    },
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "You can move forward pressing the D key on your keyword or backward with Q..."
+      }
+    }
+  ],
+  "2": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "This tutorial will show you the basics of DmC code presentation tool. Enjoy!"
+      }
+    }
+  ],
+  "3": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 2,
+        "content": "THE CODE"
+      }
+    }
+  ],
+  "4": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 0
+      }
+    },
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": 0,
+        "to": 50
+      }
+    }
+  ],
+  "5": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "DmC can move to a specific line and amphasis a set of lines."
+      }
+    }
+  ],
+  "6": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 3,
+        "content": "PART 1"
+      }
+    }
+  ],
+  "7": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 2
+      }
+    },
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": 2,
+        "to": 29
+      }
+    }
+  ],
+  "8": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "Add info here to explain PART 1!"
+      }
+    }
+  ],
+  "9": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 3,
+        "content": "PART 2"
+      }
+    }
+  ],
+  "10": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 30
+      }
+    },
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": 30,
+        "to": 50
+      }
+    }
+  ],
+  "11": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "Add info here to explain PART 2!"
+      }
+    }
+  ],
+  "12": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 6,
+        "content": "APPENDIX"
+      }
+    }
+  ],
+  "13": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 0
+      }
+    },
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": -1,
+        "to": null
+      }
+    },
+    {
+      "type": "SHOW IMAGE",
+      "params": {
+        "url": "https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg"
+      }
+    }
+  ],
+  "14": [
+    {
+      "type": "SHOW YOUTUBE",
+      "params": {
+        "url": "hVEPXzve5EY"
+      }
+    }
+  ],
+  "15": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 1,
+        "content": "THE END"
+      }
+    }
+  ]
+};
 
 module.exports = { tuto_js, tuto_dmc };

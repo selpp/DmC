@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <router-view />
+    <NavBar />
+
+    <transition name="slide">
+      <router-view :key="$route.fullPath" />
+    </transition>
   </div>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { NavBar }
 }
 </script>
 
@@ -14,45 +21,21 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier;
+  width: 100%;
+  font-family: 'Inconsolata', monospace;;
   font-weight: 400;
   background-color: #282b32;
   color: #c4c9d4;
+  overflow-x: hidden;
 }
 
-button {
-  padding: 10px 15px;
-  font-weight: bold;
-  font-size: 25px;
-  text-transform: uppercase;
-  border: none;
-  color: #c4c9d4;
-  background-color: #282b32;
-  cursor: pointer;
-  transition: 0.4s;
+.slide-leave-active,
+.slide-enter-active { transition: 0.4s; }
+.slide-enter { transform: translate(100%, 0); }
+.slide-leave-to { opacity: 0; }
 
-  border-style: solid;
-  border-width: 10px;
-  border-color: #282b32;
-}
-button:hover {
-  border-style: solid;
-  border-width: 10px;
-  border-color: #3e19a7;
-}
-button:focus {
-  outline: none;
-}
-
-::-webkit-scrollbar {
-  background: #282b32;
-  width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #c4c9d4;
-  border-radius: 50px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #969dad;
-}
+::-webkit-scrollbar { width: 0px; }
+::-webkit-scrollbar-thumb { width: 0px; }
+::-webkit-scrollbar-track        { width: 0px; }
+::-webkit-scrollbar-track-piece  { width: 0px; }
 </style>

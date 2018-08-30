@@ -10,11 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "dmc_compiler": "^0.0.1",
     "vue": "^2.5.2",
     "vue-highlightjs": "^1.3.3",
     "vue-router": "^3.0.1",
-    "vue-scrollto": "^2.11.0",
-    "dmc_compiler": "^0.0.1"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -1,0 +1,15 @@
+{
+  "name": "dmc_tutorial",
+  "version": "0.0.1",
+  "description": "Generate tutorial.js file & replace it in the dmc_website package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node ./index.js"
+  },
+  "dependencies": {
+    "dmc_compiler": "^0.0.1"
+  },
+  "author": "Yliess HATI & Gregor JOUET",
+  "license": "MIT"
+}
