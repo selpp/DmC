@@ -6,7 +6,10 @@
 
     <Code v-bind:highlights="highlights" v-bind:code="this.code"/>
 
-    <div id="state"><span>{{ actual }}</span><span>/</span><span>{{ total }}</span></div>
+    <div id="state">
+      <div v-if="auto">auto</div>
+      <span>{{ actual }}</span><span>/</span><span>{{ total }}</span>
+    </div>
   </div>
 </template>
 
@@ -18,10 +21,10 @@ import { bus } from '@/bus/bus';
 export default {
   name: 'Presentation',
   components: { Modal, Code },
-  props: [ 'source', 'script', 'in_store', 'auto' ],
+  props: [ 'source', 'script', 'in_store', 'auto_play' ],
   data: function() {
     return {
-      highlights: null, modal: null,
+      highlights: null, modal: null, auto: false,
       s_id: -1, a_id: 0, processing: false
     };
   },
@@ -32,6 +35,7 @@ export default {
     actual: function() { return this.s_id + 1; },
   },
   mounted: function() {
+    this.auto = this.auto_play;
     if(this.auto == false) window.addEventListener('keydown', (e) => { this.handle_key(e); });
     else { this.processing = true; this.do_next(); }
   },
@@ -46,15 +50,18 @@ export default {
     set_modal: function(modal) { setTimeout(() => { this.modal = modal; }, 500) },
     reset_modal: function() { this.modal = null; },
     reset_all: function() { this.reset_modal(); this.reset_highlights(); },
-    reverse_auto: function() { this.auto = !this.auto; },
+    reverse_auto: function() {
+      if(this.auto == true) this.auto = false;
+      else { this.auto = true; this.processing = true; this.do_next(); }
+    },
 
     handle_key: function(e) {
       if(this.processing == false) switch (e.keyCode) {
-          case 39: this.processing = true; this.auto = false; this.do_next(); break;
-          case 37: this.processing = true; this.auto = false; this.do_previous(); break;
-          case 32: this.reverse_auto(); break;
+          case 39: this.processing = true; this.do_next(); break;
+          case 37: this.processing = true; this.do_previous(); break;
           default: break;
       }
+      if(e.keyCode == 65) this.reverse_auto();
     },
 
     play_next: function() { this.$store.state.sound('NEXT_SEQUENCE'); },
