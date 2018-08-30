@@ -21,6 +21,7 @@
 
 <script>
 const MODAL_SOUND = new Audio(require('../assets/modal.wav'));
+MODAL_SOUND.volume = 0.2;
 
 export default {
   name: 'Modal',
