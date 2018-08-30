@@ -31,7 +31,7 @@ export default {
     };
   },
   computed: {
-    code: function() { return (this.in_store == true)? this.$store.state.source: this.source; },
+    code: function() { return (this.in_store == true)? '\n' + this.$store.state.source: '\n' + this.source; },
     sequences: function() { return (this.in_store == true)? this.$store.state.script: this.script; },
     total: function() { return Object.keys(this.sequences).length - 1; },
     actual: function() { return (this.s_id == -2)? 'advices': this.s_id + 1; },
