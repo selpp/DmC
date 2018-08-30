@@ -46,11 +46,13 @@ export default {
     set_modal: function(modal) { setTimeout(() => { this.modal = modal; }, 500) },
     reset_modal: function() { this.modal = null; },
     reset_all: function() { this.reset_modal(); this.reset_highlights(); },
+    reverse_auto: function() { this.auto = !this.auto; },
 
     handle_key: function(e) {
       if(this.processing == false) switch (e.keyCode) {
-          case 39: this.processing = true; this.do_next(); break;
-          case 37: this.processing = true; this.do_previous(); break;
+          case 39: this.processing = true; this.reverse_auto(); this.do_next(); break;
+          case 37: this.processing = true; this.reverse_auto(); this.do_previous(); break;
+          case 32: this.reverse_auto();
           default: break;
       }
     },

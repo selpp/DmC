@@ -54,11 +54,11 @@ export default {
     play_sound: function(sound) { this.$store.state.sound(sound); },
     process_source: function(e) {
       this.source_file = e.target.files[0]; this.source_stage++;
-      setTimeout(() => { this.read_source(); this.source_stage++; this.play_sound('LOADING'); }, 2000);
+      setTimeout(() => { this.play_sound('LOADING'); this.read_source(); this.source_stage++; }, 2000);
     },
     process_script: function(e) {
       this.script_file = e.target.files[0]; this.script_stage++;
-      setTimeout(() => { this.read_script(); this.script_stage++; this.play_sound('LOADING'); }, 2000);
+      setTimeout(() => { this.play_sound('LOADING'); this.read_script(); this.script_stage++; }, 2000);
     },
     read_source: function() {
       const reader = new FileReader(); reader.onload = e => { this.source_content = e.target.result; };
