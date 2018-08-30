@@ -22,13 +22,13 @@ let parse = (structured_lines, tokens_l, cursor) => {
     let params = sl_content.split(' ');
     if(params.length == 1) {
       let from = parseInt(params[0]);
-      if(from == null) success = false;
+      if(typeof(from) == typeof(1)) success = false;
       else tokens_l.push(create(from, null));
     }
     else if(params.length == 3) {
       let from = parseInt(params[0]);
       let to = parseInt(params[2]);
-      if(params[1] != 'to' || from == null || to == null) success = false;
+      if(params[1] != 'to' || typeof(from) == typeof(1) || typeof(to) == typeof(1)) success = false;
       else tokens_l.push(create(from, to));
     }
     else success = false;

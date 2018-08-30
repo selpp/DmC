@@ -19,7 +19,7 @@ let parse = (structured_lines, tokens_l, cursor) => {
   if(sl_content == '') success = false;
   else {
     let to = parseInt(sl_content);
-    if(to == null) success = false;
+    if(typeof(to) == typeof(1)) success = false;
     else tokens_l.push(create(to));
   }
 
