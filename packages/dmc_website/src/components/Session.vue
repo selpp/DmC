@@ -69,6 +69,7 @@ export default {
         let res = compiler(e.target.result);
         if(res.warnings.length > 0) {
           this.script_warnings = res.warnings;
+          this.play_sound('FILE_WARNING');
           console.log('WARNINGS: ', JSON.stringify(res.warnings, null, 2));}
         this.script_content = res.sequences;
       };
