@@ -28,7 +28,9 @@ let parse = (structured_lines, tokens_l, cursor) => {
       cursor_gap++;
       while(cursor_gap < structured_lines.length &&
             structured_lines[cursor_gap].level > sl_level) {
-        content += structured_lines[cursor_gap].content + '\n';
+        let diff_indent = structured_lines[cursor_gap].level - sl_level - 1;
+        let indent = ''; if(diff_indent > 0) for(let i = 0; i < diff_indent; i++) indent += '\t';
+        content += indent + structured_lines[cursor_gap].content + '\n';
         cursor_gap++;
       }
 
