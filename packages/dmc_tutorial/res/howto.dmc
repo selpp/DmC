@@ -51,6 +51,12 @@
 	show line -1
 	move to line 0
 	
+	//show qrcode
+	show info 
+		"show qrcode" can be used to display a qrcode 
+		Here is a qrcode to google.com
+	
+	show qrcode http://google.com
 
 	// move to line
 	show info "move to line X" moves the focus to the given line
