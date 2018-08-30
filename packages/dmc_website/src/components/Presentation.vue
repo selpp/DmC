@@ -50,9 +50,9 @@ export default {
 
     handle_key: function(e) {
       if(this.processing == false) switch (e.keyCode) {
-          case 39: this.processing = true; this.reverse_auto(); this.do_next(); break;
-          case 37: this.processing = true; this.reverse_auto(); this.do_previous(); break;
-          case 32: this.reverse_auto();
+          case 39: this.processing = true; this.auto = false; this.do_next(); break;
+          case 37: this.processing = true; this.auto = false; this.do_previous(); break;
+          case 32: this.reverse_auto(); break;
           default: break;
       }
     },
