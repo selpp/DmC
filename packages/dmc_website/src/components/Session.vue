@@ -5,7 +5,7 @@
         <input  v-if="source_stage == 0" type="file" name="source" id="source" @change="process_source($event)"
         accept=".dmc, .md, .c, .h, .cpp, .hpp, .java, .js, .cs, .html, .css, .coffee, .python, .lua, .d, .txt,
         .sql, .json, .xml, .xhtml, .scss, .vue, .gitignore"/>
-        <label v-if="source_stage == 0" for="source" @click="play_sound('button')" v-on:mouseover="play_sound('hover')"><strong>source</strong></label>
+        <label v-if="source_stage == 0" for="source" @click="play_sound('BUTTON_CLICK')" v-on:mouseover="play_sound('BUTTON_HOVER')"><strong>source</strong></label>
         <transition name=fade>
           <div class="loader-boarder" v-if="source_stage == 1"><div class="loader"></div></div>
         </transition>
@@ -16,7 +16,7 @@
 
       <div class="file-container">
         <input v-if="script_stage == 0" type="file" name="script" id="script" @change="process_script($event)" accept=".dmc"/>
-        <label v-if="script_stage == 0" for="script" @click="play_sound('button')" v-on:mouseover="play_sound('hover')"><strong>script</strong></label>
+        <label v-if="script_stage == 0" for="script" @click="play_sound('BUTTON_CLICK')" v-on:mouseover="play_sound('BUTTON_HOVER')"><strong>script</strong></label>
         <transition name=fade>
           <div class="loader-boarder" v-if="script_stage == 1"><div class="loader"></div></div>
         </transition>
@@ -29,8 +29,8 @@
 
       <div class="file-container">
         <transition name=fade>
-          <div v-if="(source_stage == 3 && script_stage == 3)" id="start-button" @click="start_session" v-on:mouseover="play_sound('hover')">
-            <span id="start-symbol"> </span>
+          <div v-if="(source_stage == 3 && script_stage == 3)" id="start-button" @click="start_session">
+            <span id="start-symbol" v-on:mouseover="play_sound('BUTTON_HOVER')"> </span>
           </div>
         </transition>
       </div>
@@ -40,12 +40,6 @@
 
 <script>
 const { compiler } = require('dmc_compiler');
-const BUTTON_SOUND = new Audio(require('../assets/button.wav'));
-BUTTON_SOUND.volume = 0.2;
-const LOAD_SOUND = new Audio(require('../assets/loading.wav'));
-LOAD_SOUND.volume = 0.2;
-const HOVER_SOUND = new Audio(require('../assets/hover.wav'));
-HOVER_SOUND.volume = 0.1;
 
 export default {
   name: 'Session',
@@ -57,18 +51,14 @@ export default {
     };
   },
   methods: {
-    play_sound: function(sound) {
-      if(sound == 'button') { BUTTON_SOUND.pause(); BUTTON_SOUND.currentTime = 0; BUTTON_SOUND.play(); }
-      if(sound == 'loading') { LOAD_SOUND.pause(); LOAD_SOUND.currentTime = 0; LOAD_SOUND.play(); }
-      if(sound == 'hover') { HOVER_SOUND.pause(); HOVER_SOUND.currentTime = 0; HOVER_SOUND.play(); }
-    },
+    play_sound: function(sound) { this.$store.state.sound(sound); },
     process_source: function(e) {
       this.source_file = e.target.files[0]; this.source_stage++;
-      setTimeout(() => { this.read_source(); this.source_stage++; this.play_sound('loading'); }, 2000);
+      setTimeout(() => { this.read_source(); this.source_stage++; this.play_sound('LOADING'); }, 2000);
     },
     process_script: function(e) {
       this.script_file = e.target.files[0]; this.script_stage++;
-      setTimeout(() => { this.read_script(); this.script_stage++; this.play_sound('loading'); }, 2000);
+      setTimeout(() => { this.read_script(); this.script_stage++; this.play_sound('LOADING'); }, 2000);
     },
     read_source: function() {
       const reader = new FileReader(); reader.onload = e => { this.source_content = e.target.result; };
@@ -87,7 +77,7 @@ export default {
     start_session: function() {
       this.$store.commit('set_source', { value: this.source_content });
       this.$store.commit('set_script', { value: this.script_content });
-      this.play_sound('loading');
+      this.play_sound('LOADING');
       this.$router.push({ name: 'Play'});
     }
   }

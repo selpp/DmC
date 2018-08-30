@@ -20,9 +20,6 @@ import Code from '@/components/Code';
 import { bus } from '@/bus/bus';
 import { advices } from '@/tutorial/advices';
 
-const NEXT_SOUND = new Audio(require('../assets/next.wav'));
-NEXT_SOUND.volume = 0.1;
-
 export default {
   name: 'Presentation',
   components: { Modal, Code },
@@ -39,12 +36,8 @@ export default {
     total: function() { return Object.keys(this.sequences).length - 1; },
     actual: function() { return (this.s_id == -2)? 'advices': this.s_id + 1; },
   },
-  mounted: function() {
-    window.addEventListener('keydown', (e) => { this.handle_key(e); });
-    this.sequences[-1] = advices;
-  },
+  mounted: function() { window.addEventListener('keydown', (e) => { this.handle_key(e); }); this.sequences[-1] = advices; },
   methods: {
-    play_sound() { NEXT_SOUND.pause(); NEXT_SOUND.currentTime = 0; NEXT_SOUND.play(); },
     move_to: function(index) { bus.$emit('move-to-line', index); },
     set_highlights: function(from, to) {
       if(to == null && from == -1) this.reset_highlights();
@@ -64,7 +57,9 @@ export default {
       }
     },
 
-    do_action(s_id, a_id) {
+    play_next: function() { this.$store.state.sound('NEXT_SEQUENCE'); },
+
+    do_action: function(s_id, a_id) {
       if(a_id >= this.sequences[s_id].length) this.processing = false;
       else {
         let action = this.sequences[s_id][a_id];
@@ -80,9 +75,9 @@ export default {
         setTimeout(() => { this.do_action(s_id, a_id + 1); }, time);
       }
     },
-    do_sequence(s_id) { if(this.sequences[s_id].length > 0) { this.play_sound(); this.do_action(s_id, 0); } else this.processing = false; },
-    do_next() { if((this.s_id + 1) in this.sequences) { this.s_id++; this.do_sequence(this.s_id); } else this.processing = false; },
-    do_previous() { if(this.s_id > -1) { this.s_id--; this.do_sequence(this.s_id); } else this.processing = false; }
+    do_sequence: function(s_id) { if(this.sequences[s_id].length > 0) { this.play_next(); this.do_action(s_id, 0); } else this.processing = false; },
+    do_next: function() { if((this.s_id + 1) in this.sequences) { this.s_id++; this.do_sequence(this.s_id); } else this.processing = false; },
+    do_previous: function() { if(this.s_id > -1) { this.s_id--; this.do_sequence(this.s_id); } else this.processing = false; }
   }
 }
 </script>

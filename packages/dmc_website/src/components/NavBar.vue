@@ -11,22 +11,12 @@
 </template>
 
 <script>
-const BUTTON_SOUND = new Audio(require('../assets/button.wav'));
-BUTTON_SOUND.volume = 0.2;
-const HOVER_SOUND = new Audio(require('../assets/hover.wav'));
-HOVER_SOUND.volume = 0.1;
-
 export default {
   name: 'NavBar',
-  computed: {
-    presentation: function() { return (this.$route.path == '/session/play' || this.$route.path == '/tutorial'); }
-  },
+  computed: { presentation: function() { return (this.$route.path == '/session/play' || this.$route.path == '/tutorial'); } },
   methods: {
-    redirect: function(path) {
-      BUTTON_SOUND.pause(); BUTTON_SOUND.currentTime = 0; BUTTON_SOUND.play();
-      this.$router.push({ path: path });
-    },
-    hover: function() { HOVER_SOUND.pause(); HOVER_SOUND.currentTime = 0; HOVER_SOUND.play(); }
+    redirect: function(path) { this.$store.state.sound('BUTTON_CLICK'); this.$router.push({ path: path }); },
+    hover: function() { this.$store.state.sound('BUTTON_HOVER') }
   }
 }
 </script>

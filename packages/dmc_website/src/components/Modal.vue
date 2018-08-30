@@ -20,13 +20,10 @@
 </template>
 
 <script>
-const MODAL_SOUND = new Audio(require('../assets/modal.wav'));
-MODAL_SOUND.volume = 0.2;
-
 export default {
   name: 'Modal',
   props: [ 'modal' ],
-  mounted: function() { MODAL_SOUND.play(); }
+  mounted: function() { this.$store.state.sound('MODAL_POP'); }
 }
 </script>
 
