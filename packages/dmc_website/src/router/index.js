@@ -11,7 +11,7 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Presentation,
-      props: { source: '', script: {}, in_store: false, auto: false }
+      props: { source: '', script: {}, in_store: false, auto_play: false }
     },
     {
       path: '/session',
@@ -22,13 +22,13 @@ export default new Router({
       path: '/session/play',
       name: 'Play',
       component: Presentation,
-      props: { source: '', script: {}, in_store: true, auto: false }
+      props: { source: '', script: {}, in_store: true, auto_play: false }
     },
     {
       path: '/tutorial',
       name: 'Tutorial',
       component: Presentation,
-      props: { source: tuto_code, script: tuto_seq, in_store: false, auto: false }
+      props: { source: tuto_code, script: tuto_seq, in_store: false, auto_play: false }
     }
   ]
 });
