@@ -1,20 +1,20 @@
 <template>
   <div class="modal">
     <div class='modal-content'>
-      <h1 v-if="modal.type == 'HEADER 1'">{{ modal.content }}</h1>
-      <h2 v-if="modal.type == 'HEADER 2'">{{ modal.content }}</h2>
-      <h3 v-if="modal.type == 'HEADER 3'">{{ modal.content }}</h3>
-      <h4 v-if="modal.type == 'HEADER 4'">{{ modal.content }}</h4>
-      <h5 v-if="modal.type == 'HEADER 5'">{{ modal.content }}</h5>
-      <h6 v-if="modal.type == 'HEADER 6'">{{ modal.content }}</h6>
+      <h1 v-if="modal.type == 'HEADER 1'" class="allow-click">{{ modal.content }}</h1>
+      <h2 v-if="modal.type == 'HEADER 2'" class="allow-click">{{ modal.content }}</h2>
+      <h3 v-if="modal.type == 'HEADER 3'" class="allow-click">{{ modal.content }}</h3>
+      <h4 v-if="modal.type == 'HEADER 4'" class="allow-click">{{ modal.content }}</h4>
+      <h5 v-if="modal.type == 'HEADER 5'" class="allow-click">{{ modal.content }}</h5>
+      <h6 v-if="modal.type == 'HEADER 6'" class="allow-click">{{ modal.content }}</h6>
 
-      <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
+      <pre v-if="modal.type == 'INFO'" class="allow-click">{{ '\n' + modal.content }}</pre>
 
       <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
-      <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content">{{ modal.content }}</a>
+      <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content" class="allow-click">{{ modal.content }}</a>
 
-      <iframe v-if="modal.type == 'YOUTUBE'" width="800" height="600" v-bind:src="'https://www.youtube.com/embed/' + modal.content"> </iframe>
-      <a v-if="modal.type == 'YOUTUBE'" v-bind:href="'https://www.youtube.com/watch?v=' + modal.content">{{ 'https://www.youtube.com/watch?v=' + modal.content }}</a>
+      <iframe v-if="modal.type == 'YOUTUBE'" width="800" height="600" v-bind:src="'https://www.youtube.com/embed/' + modal.content + '?autoplay=1'" class="allow-click"> </iframe>
+      <a v-if="modal.type == 'YOUTUBE'" v-bind:href="'https://www.youtube.com/watch?v=' + modal.content" class="allow-click">{{ 'https://www.youtube.com/watch?v=' + modal.content }}</a>
     </div>
   </div>
 </template>
@@ -57,6 +57,8 @@ export default {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
+
+.allow-click { pointer-events: all; }
 
 a {
   text-decoration: none;
