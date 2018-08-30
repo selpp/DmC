@@ -2,17 +2,7 @@ const fs = require('fs');
 const { compiler } = require('dmc_compiler')
 
 // READ FILES
-let js_file = fs.readFileSync('./res/tutorial.js', 'utf-8');
-let dmc_file = fs.readFileSync('./res/tutorial.dmc', 'utf-8');
-let adv_file = fs.readFileSync('./res/advices.dmc', 'utf-8');
-
-// JS
-let js_generator = (name, file) => {
-  let lines = file.split('\n');
-  let js = 'let ' + name + ' = \'\' +\n';
-  lines.forEach(function(line) { js += '\'' + line + '\\n\' +\n'; });
-  return js + '\'\\n\';';
-};
+let dmc_file = fs.readFileSync('./res/howto.dmc', 'utf-8');
 
 //DMC
 let dmc_generator = (name, file, collapse) => {
@@ -24,14 +14,10 @@ let dmc_generator = (name, file, collapse) => {
 };
 
 // GENERATE JS STRINGS
-let js_string_js = js_generator('tuto_js', js_file);
 let js_string_dmc = dmc_generator('tuto_dmc', dmc_file, false);
-let js_string_adv = dmc_generator('advices', adv_file, true);
 
 // GENERATE FINAL STRING
-let tuto_js = js_string_js + '\n\n' + js_string_dmc + '\n\nmodule.exports = { tuto_js, tuto_dmc };\n';
-let adv_js = js_string_adv + '\n\nmodule.exports = { advices };\n';
+let tuto_js = js_string_dmc + '\n\nmodule.exports = { tuto_dmc };\n';
 
 // WRITE FILE
 fs.writeFileSync('../dmc_website/src/tutorial/tutorial.js', tuto_js, 'utf8');
-fs.writeFileSync('../dmc_website/src/tutorial/advices.js', adv_js, 'utf8');
