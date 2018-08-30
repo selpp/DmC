@@ -10,6 +10,9 @@
 
       <pre v-if="modal.type == 'INFO'" class="allow-click">{{ '\n' + modal.content }}</pre>
 
+      <div id="qrcode" v-if="modal.type == 'QRCODE'" v-html="modal.content.qrcode"></div>
+      <a v-if="modal.type == 'QRCODE'" v-bind:href="modal.content.url" class="allow-click">{{ modal.content.url }}</a>
+
       <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
       <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content" class="allow-click">{{ modal.content }}</a>
 
@@ -29,122 +32,34 @@ export default {
 
 <style scoped>
 .modal {
-  pointer-events:none;
-  z-index: 20;
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  pointer-events:none; z-index: 20;
+  position: fixed; top: 0; left: 0; margin: auto;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; width: 100%; height: 100%;
 }
 .modal-content {
-  margin: auto;
-  padding: 70px 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-
-  background-color: rgba(0, 0, 0, 0.3);
-
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  margin: auto; padding: 70px 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; width: 100%; background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
 }
 
 .allow-click { pointer-events: all; }
 
-a {
-  text-decoration: none;
-  color: rgba(25, 150, 167, 0.5);
-  margin-top: 25px;
-  font-size: 10px;
-  transition: 0.4s;
-}
-a:hover {
-  color: rgba(19, 106, 119, 0.5);
-}
+a { text-decoration: none; color: rgba(25, 150, 167, 0.5); margin-top: 25px; font-size: 20px; transition: 0.4s; }
+a:hover { color: rgba(19, 106, 119, 0.5); }
 
-pre {
-  width: 70%;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 25px;
-  white-space: pre-wrap;
-}
+pre { width: 70%; font-size: 20px; font-weight: 600; line-height: 25px; white-space: pre-wrap; }
 
-h1 {
-  padding: 50px;
-  margin: 15px;
+h1 { padding: 50px; margin: 15px; font-size: 50px; border-style: solid; border-width: 10px; border-color: #a71961; }
+h2 { padding: 40px; margin: 15px; font-size: 40px; border-style: solid; border-width: 10px; border-color: #7a19a7; }
+h3 { padding: 35px; margin: 15px; font-size: 35px; border-style: solid; border-width: 10px; border-color: #3e19a7; }
+h4 { padding: 30px; margin: 15px; font-size: 30px; border-style: solid; border-width: 10px; border-color: #1941a7; }
+h5 { padding: 27px; margin: 15px; font-size: 27px; border-style: solid; border-width: 10px; border-color: #1963a7; }
+h6 { padding: 25px; margin: 15px; font-size: 25px; border-style: solid; border-width: 10px; border-color: #1996a7; }
 
-  font-size: 50px;
+img { max-height: 70vh; max-width: 70vw; }
+iframe { border: none; }
 
-  border-style: solid;
-  border-width: 10px;
-  border-color: #a71961;
-}
-h2 {
-  padding: 40px;
-  margin: 15px;
-
-  font-size: 40px;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: #7a19a7;
-}
-h3 {
-  padding: 35px;
-  margin: 15px;
-
-  font-size: 35px;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: #3e19a7;
-}
-h4 {
-  padding: 30px;
-  margin: 15px;
-
-  font-size: 30px;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: #1941a7;
-}
-h5 {
-  padding: 27px;
-  margin: 15px;
-
-  font-size: 27px;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: #1963a7;
-}
-h6 {
-  padding: 25px;
-  margin: 15px;
-
-  font-size: 25px;
-
-  border-style: solid;
-  border-width: 10px;
-  border-color: #1996a7;
-}
-
-img {
-  max-height: 70vh;
-  max-width: 70vw;
-}
-iframe {
-  border: none;
-}
+#qrcode { max-height: 70vh; max-width: 70vw; width: 500px; height: 500px; fill: white; }
 </style>

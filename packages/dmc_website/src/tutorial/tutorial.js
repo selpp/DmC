@@ -43,7 +43,7 @@ let tuto_code = "" +
 "	move to line 0\n" + 
 "	show line 1 to 2\n" + 
 "	wait\n" + 
-"	show line 5\n" + 
+"	show line 4\n" + 
 "	wait\n" + 
 "	show line 3 to 7\n" + 
 "	wait\n" + 
@@ -52,6 +52,12 @@ let tuto_code = "" +
 "	show line -1\n" + 
 "	move to line 0\n" + 
 "	\n" + 
+"	//show qrcode\n" + 
+"	show info \n" + 
+"		\"show qrcode\" can be used to display a qrcode \n" + 
+"		Here is a qrcode to google.com\n" + 
+"	\n" + 
+"	show qrcode http://google.com\n" + 
 "\n" + 
 "	// move to line\n" + 
 "	show info \"move to line X\" moves the focus to the given line\n" + 
@@ -116,9 +122,6 @@ let tuto_code = "" +
 "\n" + 
 "\n" + 
 "\n" + 
-"\n" + 
-"\n" + 
-"\n" + 
 "\n";
 
 let tuto_seq = {
@@ -164,12 +167,6 @@ let tuto_seq = {
     }
   ],
   "4": [
-    {
-      "type": "MOVE TO",
-      "params": {
-        "to": 1
-      }
-    },
     {
       "type": "SHOW LINE",
       "params": {
@@ -284,12 +281,6 @@ let tuto_seq = {
   ],
   "17": [
     {
-      "type": "MOVE TO",
-      "params": {
-        "to": 0
-      }
-    },
-    {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
@@ -301,7 +292,7 @@ let tuto_seq = {
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 5,
+        "from": 4,
         "to": null
       }
     }
@@ -339,11 +330,22 @@ let tuto_seq = {
       }
     },
     {
-      "type": "MOVE TO",
+      "type": "SHOW INFO",
       "params": {
-        "to": 0
+        "content": "\"show qrcode\" can be used to display a qrcode \nHere is a qrcode to google.com\n"
       }
-    },
+    }
+  ],
+  "22": [
+    {
+      "type": "SHOW QRCODE",
+      "params": {
+        "base64": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 27 27\"><path d=\"M1 1h7v7h-7zM9 1h1v2h1v-2h3v3h-1v-1h-1v1h-1v1h2v1h1v2h1v6h1v-4h1v1h1v4h2v1h-1v1h1v-1h1v-2h1v1h2v-1h1v1h1v2h-1v-1h-1v1h1v2h-1v-1h-1v-2h-1v3h1v1h-1v1h1v2h-1v-1h-2v1h-1v1h-1v-1h-2v3h-2v-1h1v-3h-2v-2h1v1h1v-1h1v1h1v-4h1v-1h-1v1h-1v-2h-1v1h-2v1h-1v1h-2v-1h1v-1h1v-1h2v-1h-1v-3h1v-2h-2v1h1v1h-2v-1h-1v1h1v1h1v3h-1v-2h-2v-1h-2v-1h2v-1h-5v-1h7v-2h1v1h1v-1h-1v-1h-1v1h-1v-1h-1v-1h1v-1h-1zM15 1h3v2h-1v-1h-2zM19 1h7v7h-7zM2 2v5h5v-5zM20 2v5h5v-5zM3 3h3v3h-3zM16 3h1v1h1v2h-1v-1h-1zM21 3h3v3h-3zM15 5h1v1h-1zM9 7h1v1h-1zM15 7h1v1h-1zM17 7h1v2h1v1h-2v-1h-1v-1h1zM1 9h1v5h1v2h-1v2h-1zM21 9h1v1h1v-1h3v1h-1v1h-2v1h2v-1h1v3h-1v-1h-4v1h-2v-1h1v-3h1zM3 10h1v1h-1zM21 11v1h1v-1zM3 12h2v2h-1v-1h-1zM6 12h1v1h-1zM7 13h2v1h1v1h-2v-1h-1zM4 15h4v1h-3v1h-1v1h-1v-2h1zM10 15h1v1h-1zM8 16h1v2h-4v-1h3zM15 17h1v2h-3v1h-1v-2h3zM9 18h1v5h-1zM18 18v3h3v-3zM1 19h7v7h-7zM19 19h1v1h-1zM25 19h1v7h-1v-1h-2v-2h1v-1h1v-1h-1v-1h1zM2 20v5h5v-5zM3 21h3v3h-3zM11 23h1v1h-1zM13 23h1v1h-1zM20 23h2v2h-2zM10 24h1v2h-2v-1h1zM17 25h3v1h-3zM22 25h1v1h-1z\"/></svg>",
+        "url": "http://google.com"
+      }
+    }
+  ],
+  "23": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -351,30 +353,16 @@ let tuto_seq = {
       }
     }
   ],
-  "22": [
+  "24": [
     {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
         "to": 100
       }
-    },
-    {
-      "type": "MOVE TO",
-      "params": {
-        "to": 4
-      }
     }
   ],
-  "23": [
-    {
-      "type": "MOVE TO",
-      "params": {
-        "to": 30
-      }
-    }
-  ],
-  "24": [
+  "25": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -382,7 +370,7 @@ let tuto_seq = {
       }
     }
   ],
-  "25": [
+  "26": [
     {
       "type": "HEADER",
       "params": {
@@ -391,13 +379,7 @@ let tuto_seq = {
       }
     }
   ],
-  "26": [
-    {
-      "type": "MOVE TO",
-      "params": {
-        "to": 59
-      }
-    },
+  "27": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -412,7 +394,7 @@ let tuto_seq = {
       }
     }
   ],
-  "27": [
+  "28": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -420,7 +402,7 @@ let tuto_seq = {
       }
     }
   ],
-  "28": [
+  "29": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -428,7 +410,7 @@ let tuto_seq = {
       }
     }
   ],
-  "29": [
+  "30": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -436,7 +418,7 @@ let tuto_seq = {
       }
     }
   ],
-  "30": [
+  "31": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -444,13 +426,7 @@ let tuto_seq = {
       }
     }
   ],
-  "31": [
-    {
-      "type": "MOVE TO",
-      "params": {
-        "to": 81
-      }
-    },
+  "32": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -459,7 +435,7 @@ let tuto_seq = {
       }
     }
   ],
-  "32": [
+  "33": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -467,7 +443,7 @@ let tuto_seq = {
       }
     }
   ],
-  "33": [
+  "34": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -475,7 +451,7 @@ let tuto_seq = {
       }
     }
   ],
-  "34": [
+  "35": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -483,7 +459,7 @@ let tuto_seq = {
       }
     }
   ],
-  "35": [
+  "36": [
     {
       "type": "HEADER",
       "params": {
@@ -492,7 +468,7 @@ let tuto_seq = {
       }
     }
   ],
-  "36": [
+  "37": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -500,7 +476,7 @@ let tuto_seq = {
       }
     }
   ],
-  "37": [
+  "38": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -508,7 +484,7 @@ let tuto_seq = {
       }
     }
   ],
-  "38": [
+  "39": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -516,7 +492,7 @@ let tuto_seq = {
       }
     }
   ],
-  "39": [
+  "40": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -524,7 +500,7 @@ let tuto_seq = {
       }
     }
   ],
-  "40": [
+  "41": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -532,7 +508,7 @@ let tuto_seq = {
       }
     }
   ],
-  "41": [
+  "42": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -540,7 +516,7 @@ let tuto_seq = {
       }
     }
   ],
-  "42": [
+  "43": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -548,7 +524,7 @@ let tuto_seq = {
       }
     }
   ],
-  "43": [
+  "44": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -556,7 +532,7 @@ let tuto_seq = {
       }
     }
   ],
-  "44": [
+  "45": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -564,7 +540,7 @@ let tuto_seq = {
       }
     }
   ],
-  "45": [
+  "46": [
     {
       "type": "HEADER",
       "params": {
