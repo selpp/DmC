@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Presentation from '@/components/Presentation';
 import Session from '@/components/Session';
-import { tuto_js, tuto_dmc } from '@/tutorial/tutorial';
+import { tuto_code, tuto_seq } from '@/tutorial/tutorial';
 
 Vue.use(Router);
 export default new Router({
@@ -11,7 +11,7 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Presentation,
-      props: { source: '', script: {}, in_store: false }
+      props: { source: '', script: {}, in_store: false, auto: false }
     },
     {
       path: '/session',
@@ -22,13 +22,13 @@ export default new Router({
       path: '/session/play',
       name: 'Play',
       component: Presentation,
-      props: { source: '', script: {}, in_store: true }
+      props: { source: '', script: {}, in_store: true, auto: false }
     },
     {
       path: '/tutorial',
       name: 'Tutorial',
       component: Presentation,
-      props: { source: tuto_js, script: tuto_dmc, in_store: false }
+      props: { source: tuto_code, script: tuto_seq, in_store: false, auto: true }
     }
   ]
 });
