@@ -28,7 +28,7 @@ export default new Router({
       path: '/tutorial',
       name: 'Tutorial',
       component: Presentation,
-      props: { source: tuto_code, script: tuto_seq, in_store: false, auto: true }
+      props: { source: tuto_code, script: tuto_seq, in_store: false, auto: false }
     }
   ]
 });
