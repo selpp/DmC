@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yliess HATI & Gregor JOUET",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "qr-image": "^3.2.0"
+  }
 }
