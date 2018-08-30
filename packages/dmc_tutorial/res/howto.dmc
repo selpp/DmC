@@ -42,7 +42,7 @@
 	move to line 0
 	show line 1 to 2
 	wait
-	show line 5
+	show line 4
 	wait
 	show line 3 to 7
 	wait
@@ -112,8 +112,5 @@ show info this works as well
 		Seriously though, donations are always appreciated. Thank you for your support !
 	
 	# The END
-
-
-
 
 
