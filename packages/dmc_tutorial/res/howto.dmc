@@ -16,22 +16,22 @@
 		so you can focus on your presentation
 
 	## Language key words
-	show info 
+	show info
 		There are a few key words in the DMC language:
-	
+
 	// HEADERS
 	show info
 		"# HEADER" highlight the main structure of your presentation
 		It is inspired from Markdown and displays a big text in a rectangle
 	# EXAMPLE
-	
+
 	show info
 		the "show" instruction helps you by showing various components
 	show info "show info" Shows additional text informations
 
 	// show image
 	show info "show image" Shows an image from an URL
-	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg	
+	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg
 
 	// show youtube
 	show info "show youtube" shows a youtube video with its videoID
@@ -50,12 +50,12 @@
 	show line 4 to 10
 	show line -1
 	move to line 0
-	
+
 	//show qrcode
-	show info 
-		"show qrcode" can be used to display a qrcode 
+	show info
+		"show qrcode" can be used to display a qrcode
 		Here is a qrcode to google.com
-	
+
 	show qrcode http://google.com
 
 	// move to line
@@ -64,14 +64,14 @@
 	move to line 4
 	wait
 	move to line 30
-	wait	
+	wait
 
 	// wait
-	show info 
+	show info
 		You can force the presentation to wait until a key is pressed at certain points
 		with the "wait" command
 	wait
-	
+
 
 
 	## Language syntax
@@ -95,28 +95,26 @@ show info this works as well
 	move to line 81
 	show line 83 to 86
 	wait
-	
-	show info And as you can see, DMC doesn't requires quotes to give textual information. 
+
+	show info And as you can see, DMC doesn't requires quotes to give textual information.
 	show info But you can't use escape sequences \n \t \r etc..
 	show info You can't add comments at the end of a show info // no comment
 
 	# Using the website
-	show info The website tab bar has a few options 
-	show info "Home" brings you back to the homepage 
+	show info The website tab bar has a few options
+	show info "Home" brings you back to the homepage
 	show image https://i.kym-cdn.com/entries/icons/mobile/000/000/015/oreally.jpg
-	
+
 	show info "Session" asks you the code document and the the dmc file to start your presentation
 	show info If the dmc file contains warnings, the border will turn orange.
 	show info The warnings are shwown in the console, so you can show off a bit
 	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg
-	
+
 	show info Click "Tutorial" to go	 back to this presentation
-	
-	show info 
+
+	show info
 		The "Donate" button brings Peace to the world
 		don't hesitate to click it.
 		Seriously though, donations are always appreciated. Thank you for your support !
-	
+
 	# The END
-
-

@@ -1,4 +1,4 @@
-let command = 'move to line ';
+let command = 'move to line';
 
 let create = (to) => {
   return {
@@ -19,12 +19,12 @@ let parse = (structured_lines, tokens_l, cursor) => {
   if(sl_content == '') success = false;
   else {
     let to = parseInt(sl_content);
-    if(typeof(to) == typeof(1)) success = false;
+    if(typeof(to) != typeof(1)) success = false;
     else tokens_l.push(create(to));
   }
 
   return {
-    sucess: success,
+    success: success,
     tokens_l: tokens_l,
     line: cursor,
     cursor: cursor + 1

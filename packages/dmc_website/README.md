@@ -1,6 +1,6 @@
 # website
 
-> DmC WebSite
+> A Vue.js project
 
 ## Build Setup
 

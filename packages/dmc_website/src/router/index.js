@@ -1,34 +1,34 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Presentation from '@/components/Presentation';
-import Session from '@/components/Session';
-import { tuto_code, tuto_seq } from '@/tutorial/tutorial';
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '@/components/Home'
+import Session from '@/components/Session'
+import Presentation from '@/components/Presentation'
+import { tuto_code, tuto_seq } from '@/tutorial/tutorial'
 
-Vue.use(Router);
+Vue.use(Router)
+
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
-      component: Presentation,
-      props: { source: '', script: {}, in_store: false, auto_play: false }
+      component: Home
     },
     {
       path: '/session',
       name: 'Session',
-      component: Session,
-    },
-    {
-      path: '/session/play',
-      name: 'Play',
-      component: Presentation,
-      props: { source: '', script: {}, in_store: true, auto_play: false }
+      component: Session
     },
     {
       path: '/tutorial',
       name: 'Tutorial',
       component: Presentation,
-      props: { source: tuto_code, script: tuto_seq, in_store: false, auto_play: false }
+      props: { code: tuto_code, sequences: tuto_seq }
+    },
+    {
+      path: '/donate',
+      name: 'Donate',
+      component: Home
     }
   ]
-});
+})

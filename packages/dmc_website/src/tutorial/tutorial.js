@@ -17,22 +17,22 @@ let tuto_code = "" +
 "		so you can focus on your presentation\n" + 
 "\n" + 
 "	## Language key words\n" + 
-"	show info \n" + 
+"	show info\n" + 
 "		There are a few key words in the DMC language:\n" + 
-"	\n" + 
+"\n" + 
 "	// HEADERS\n" + 
 "	show info\n" + 
 "		\"# HEADER\" highlight the main structure of your presentation\n" + 
 "		It is inspired from Markdown and displays a big text in a rectangle\n" + 
 "	# EXAMPLE\n" + 
-"	\n" + 
+"\n" + 
 "	show info\n" + 
 "		the \"show\" instruction helps you by showing various components\n" + 
 "	show info \"show info\" Shows additional text informations\n" + 
 "\n" + 
 "	// show image\n" + 
 "	show info \"show image\" Shows an image from an URL\n" + 
-"	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg	\n" + 
+"	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg\n" + 
 "\n" + 
 "	// show youtube\n" + 
 "	show info \"show youtube\" shows a youtube video with its videoID\n" + 
@@ -51,12 +51,12 @@ let tuto_code = "" +
 "	show line 4 to 10\n" + 
 "	show line -1\n" + 
 "	move to line 0\n" + 
-"	\n" + 
+"\n" + 
 "	//show qrcode\n" + 
-"	show info \n" + 
-"		\"show qrcode\" can be used to display a qrcode \n" + 
+"	show info\n" + 
+"		\"show qrcode\" can be used to display a qrcode\n" + 
 "		Here is a qrcode to google.com\n" + 
-"	\n" + 
+"\n" + 
 "	show qrcode http://google.com\n" + 
 "\n" + 
 "	// move to line\n" + 
@@ -65,14 +65,14 @@ let tuto_code = "" +
 "	move to line 4\n" + 
 "	wait\n" + 
 "	move to line 30\n" + 
-"	wait	\n" + 
+"	wait\n" + 
 "\n" + 
 "	// wait\n" + 
-"	show info \n" + 
+"	show info\n" + 
 "		You can force the presentation to wait until a key is pressed at certain points\n" + 
 "		with the \"wait\" command\n" + 
 "	wait\n" + 
-"	\n" + 
+"\n" + 
 "\n" + 
 "\n" + 
 "	## Language syntax\n" + 
@@ -96,31 +96,29 @@ let tuto_code = "" +
 "	move to line 81\n" + 
 "	show line 83 to 86\n" + 
 "	wait\n" + 
-"	\n" + 
-"	show info And as you can see, DMC doesn't requires quotes to give textual information. \n" + 
+"\n" + 
+"	show info And as you can see, DMC doesn't requires quotes to give textual information.\n" + 
 "	show info But you can't use escape sequences \n \t \r etc..\n" + 
 "	show info You can't add comments at the end of a show info // no comment\n" + 
 "\n" + 
 "	# Using the website\n" + 
-"	show info The website tab bar has a few options \n" + 
-"	show info \"Home\" brings you back to the homepage \n" + 
+"	show info The website tab bar has a few options\n" + 
+"	show info \"Home\" brings you back to the homepage\n" + 
 "	show image https://i.kym-cdn.com/entries/icons/mobile/000/000/015/oreally.jpg\n" + 
-"	\n" + 
+"\n" + 
 "	show info \"Session\" asks you the code document and the the dmc file to start your presentation\n" + 
 "	show info If the dmc file contains warnings, the border will turn orange.\n" + 
 "	show info The warnings are shwown in the console, so you can show off a bit\n" + 
 "	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg\n" + 
-"	\n" + 
+"\n" + 
 "	show info Click \"Tutorial\" to go	 back to this presentation\n" + 
-"	\n" + 
-"	show info \n" + 
+"\n" + 
+"	show info\n" + 
 "		The \"Donate\" button brings Peace to the world\n" + 
 "		don't hesitate to click it.\n" + 
 "		Seriously though, donations are always appreciated. Thank you for your support !\n" + 
-"	\n" + 
+"\n" + 
 "	# The END\n" + 
-"\n" + 
-"\n" + 
 "\n" + 
 "\n";
 
@@ -167,6 +165,12 @@ let tuto_seq = {
     }
   ],
   "4": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 1
+      }
+    },
     {
       "type": "SHOW LINE",
       "params": {
@@ -281,6 +285,12 @@ let tuto_seq = {
   ],
   "17": [
     {
+      "type": "MOVE TO",
+      "params": {
+        "to": 0
+      }
+    },
+    {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
@@ -330,9 +340,15 @@ let tuto_seq = {
       }
     },
     {
+      "type": "MOVE TO",
+      "params": {
+        "to": 0
+      }
+    },
+    {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show qrcode\" can be used to display a qrcode \nHere is a qrcode to google.com\n"
+        "content": "\"show qrcode\" can be used to display a qrcode\nHere is a qrcode to google.com\n"
       }
     }
   ],
@@ -360,9 +376,23 @@ let tuto_seq = {
         "from": 1,
         "to": 100
       }
+    },
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 4
+      }
     }
   ],
   "25": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 30
+      }
+    }
+  ],
+  "26": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -370,7 +400,7 @@ let tuto_seq = {
       }
     }
   ],
-  "26": [
+  "27": [
     {
       "type": "HEADER",
       "params": {
@@ -379,7 +409,13 @@ let tuto_seq = {
       }
     }
   ],
-  "27": [
+  "28": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 59
+      }
+    },
     {
       "type": "SHOW LINE",
       "params": {
@@ -394,7 +430,7 @@ let tuto_seq = {
       }
     }
   ],
-  "28": [
+  "29": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -402,7 +438,7 @@ let tuto_seq = {
       }
     }
   ],
-  "29": [
+  "30": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -410,7 +446,7 @@ let tuto_seq = {
       }
     }
   ],
-  "30": [
+  "31": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -418,7 +454,7 @@ let tuto_seq = {
       }
     }
   ],
-  "31": [
+  "32": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -426,7 +462,13 @@ let tuto_seq = {
       }
     }
   ],
-  "32": [
+  "33": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 81
+      }
+    },
     {
       "type": "SHOW LINE",
       "params": {
@@ -435,7 +477,7 @@ let tuto_seq = {
       }
     }
   ],
-  "33": [
+  "34": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -443,7 +485,7 @@ let tuto_seq = {
       }
     }
   ],
-  "34": [
+  "35": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -451,7 +493,7 @@ let tuto_seq = {
       }
     }
   ],
-  "35": [
+  "36": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -459,7 +501,7 @@ let tuto_seq = {
       }
     }
   ],
-  "36": [
+  "37": [
     {
       "type": "HEADER",
       "params": {
@@ -468,7 +510,7 @@ let tuto_seq = {
       }
     }
   ],
-  "37": [
+  "38": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -476,7 +518,7 @@ let tuto_seq = {
       }
     }
   ],
-  "38": [
+  "39": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -484,7 +526,7 @@ let tuto_seq = {
       }
     }
   ],
-  "39": [
+  "40": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -492,7 +534,7 @@ let tuto_seq = {
       }
     }
   ],
-  "40": [
+  "41": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -500,7 +542,7 @@ let tuto_seq = {
       }
     }
   ],
-  "41": [
+  "42": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -508,7 +550,7 @@ let tuto_seq = {
       }
     }
   ],
-  "42": [
+  "43": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -516,7 +558,7 @@ let tuto_seq = {
       }
     }
   ],
-  "43": [
+  "44": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -524,7 +566,7 @@ let tuto_seq = {
       }
     }
   ],
-  "44": [
+  "45": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -532,7 +574,7 @@ let tuto_seq = {
       }
     }
   ],
-  "45": [
+  "46": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -540,7 +582,7 @@ let tuto_seq = {
       }
     }
   ],
-  "46": [
+  "47": [
     {
       "type": "HEADER",
       "params": {

@@ -32,12 +32,18 @@ let tokenizer = (structured_lines) => {
       if(content.startsWith(tokens[token].struct.command)) {
           let res = tokens[token].struct.parse(structured_lines, tokens_l, cursor);
           tokens_l = res.tokens_l; cursor = res.cursor; line = res.lines; success = res.success;
-          if(success == false) warnings.push({ type: 'INVALID_ARGUMENT', line: cursor, content: content, modal: "Invalid argument for '"+tokens[token].struct.command+"' command on line "+cursor+": "+content });
+          if(success == false) warnings.push({
+            type: 'INVALID_ARGUMENT', line: cursor, content: content,
+            modal: "Invalid argument for '" + tokens[token].struct.command + "' command on line " + cursor + ": " + content
+          });
           next = true; break;
       }
     }
     if(next) continue;
-    if(content != '') warnings.push({ type: 'INVALID_TOKEN', line: cursor, content: content, modal: "Unknown command on line "+cursor+": "+content });
+    if(content != '') warnings.push({
+      type: 'INVALID_TOKEN', line: cursor, content: content,
+      modal: "Unknown command on line " + cursor + ": " + content
+    });
     cursor++;
   }
   return { warnings: warnings, tokens: tokens_l };

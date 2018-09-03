@@ -16,7 +16,7 @@ let parse = (structured_lines, tokens_l, cursor) => {
   ) cursor_gap++;
 
   return {
-    sucess: success,
+    success: success,
     tokens_l: tokens_l,
     line: cursor,
     cursor: (cursor_gap == cursor)? cursor + 1: cursor_gap

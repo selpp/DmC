@@ -15,9 +15,9 @@ module.exports = {
   'header': { order: 3 , struct: header },
   'move_to_line': { order: 4 , struct: move_to_line },
   'show_image': { order: 4 , struct: show_image },
-  'show_info': { order: 0 , struct: show_info },
+  'show_info': { order: 5 , struct: show_info },
   'show_line': { order: 4 , struct: show_line },
-  'show_youtube': { order: 4 , struct: show_youtube },
-  'show_qrcode': {order: 4, struct: show_qrcode},
-  'wait': { order: 4 , struct: wait }
+  'show_youtube': { order: 5 , struct: show_youtube },
+  'show_qrcode': {order: 5, struct: show_qrcode},
+  'wait': { order: 6, struct: wait }
 };
