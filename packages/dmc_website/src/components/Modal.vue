@@ -8,6 +8,8 @@
       <h5 v-if="modal.type == 'H5'">{{ modal.content }}</h5>
       <h6 v-if="modal.type == 'H6'">{{ modal.content }}</h6>
 
+      <div v-if="modal.type == 'MATHS'" v-katex:display="modal.content"></div>
+
       <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
       <div id="qrcode" v-if="modal.type == 'QRCODE'" v-html="modal.content.qrcode"></div>
       <iframe v-if="modal.type == 'YOUTUBE'" width="960" height="540"
@@ -94,6 +96,9 @@ iframe {
   height: 500px;
   fill: #1a1e26;
   background-color: #dadee7;
+}
+#maths {
+  width: 70%;
 }
 
 h1, h2, h3, h4, h5, h6 {

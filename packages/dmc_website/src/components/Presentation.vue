@@ -101,6 +101,7 @@ export default {
         switch (action.type) {
           case 'HEADER': this.reset_modal(); this.set_modal({ type: 'H' + action.params.lvl, content: action.params.content }); break;
           case 'SHOW INFO': this.reset_modal(); this.set_modal({ type: 'INFO', content: action.params.content }); break;
+          case 'SHOW MATHS': this.reset_modal(); this.set_modal({ type: 'MATHS', content: action.params.content }); break;
           case 'SHOW IMAGE': this.reset_modal(); this.set_modal({ type: 'IMAGE', content: action.params.url }); break;
           case 'SHOW YOUTUBE': this.reset_modal(); this.set_modal({ type: 'YOUTUBE', content: action.params.url }); break;
           case 'SHOW QRCODE': this.reset_modal(); this.set_modal({ type: 'QRCODE', content: { url: action.params.url, qrcode: action.params.base64 } }); break;

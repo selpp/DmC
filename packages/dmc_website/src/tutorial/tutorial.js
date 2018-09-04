@@ -120,6 +120,12 @@ let tuto_code = "" +
 "\n" + 
 "	# The END\n" + 
 "\n" + 
+"	## Maths\n" + 
+"	show info \"show maths\" work the same as \"show info\" but shows maths equations written in Katex syntax\n" + 
+"	show maths \frac{a_i}{1+x}\n" + 
+"	show maths\n" + 
+"		\frac{\frac{a_i}{1+x}}{\frac{a_i}{1+x}} = 1\n" + 
+"\n" + 
 "\n";
 
 let tuto_seq = {
@@ -596,6 +602,39 @@ let tuto_seq = {
       "params": {
         "lvl": 1,
         "content": "The END"
+      }
+    }
+  ],
+  "52": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 2,
+        "content": "Maths"
+      }
+    }
+  ],
+  "53": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "\"show maths\" work the same as \"show info\" but shows maths equations written in Katex syntax"
+      }
+    }
+  ],
+  "54": [
+    {
+      "type": "SHOW MATHS",
+      "params": {
+        "content": "\\frac{a_i}{1+x}"
+      }
+    }
+  ],
+  "55": [
+    {
+      "type": "SHOW MATHS",
+      "params": {
+        "content": "\\frac{\\frac{a_i}{1+x}}{\\frac{a_i}{1+x}} = 1\n"
       }
     }
   ]

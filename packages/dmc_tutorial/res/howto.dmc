@@ -118,3 +118,9 @@ show info this works as well
 		Seriously though, donations are always appreciated. Thank you for your support !
 
 	# The END
+
+	## Maths
+	show info "show maths" work the same as "show info" but shows maths equations written in Katex syntax
+	show maths \frac{a_i}{1+x}
+	show maths
+		\frac{\frac{a_i}{1+x}}{\frac{a_i}{1+x}} = 1

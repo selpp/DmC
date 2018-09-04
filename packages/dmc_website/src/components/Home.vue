@@ -5,7 +5,7 @@
         <h1>DmC</h1>
         <h3>Draw my Code</h3>
       </div>
-      <p>The presentation tool built for developpers. Generate gorgeous presentations using the DmC script language.</p>
+      <p>The code driven presentation tool built for developpers. Generate gorgeous presentations using the DmC script language.</p>
       <div id="dmc-buttons">
         <button @click="redirect('https://github.com/selpp/dmc')" v-on:mouseover="hover">Github</button>
       </div>
@@ -83,7 +83,6 @@
     <section id="soon">
       <h1>Comming Soon</h1>
       <ul>
-        <li>Show Latex equations</li>
         <li>Show sound</li>
         <li>Websocket Q&A after presentation</li>
       </ul>

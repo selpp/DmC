@@ -15,6 +15,11 @@ export default {
 </script>
 
 <style>
+@import "../node_modules/katex/dist/katex.min.css";
+.katex {
+  font-size: 3em;
+}
+
 body {
   margin: 0px;
   padding: 0px;

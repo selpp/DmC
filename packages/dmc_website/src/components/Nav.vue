@@ -3,7 +3,7 @@
     <button @click="redirect('/')" v-on:mouseover="hover">Home</button>
     <button v-if="!presentation" @click="redirect('/session')" v-on:mouseover="hover">Session</button>
     <button v-if="!presentation" @click="redirect('/tutorial')" v-on:mouseover="hover">Tutorial</button>
-    <button v-if="!presentation" @click="donate" v-on:mousehover="hover">Donate</button>
+    <button v-if="!presentation" @click="donate" v-on:mouseover="hover">Donate</button>
     <div id="nav-logo">DmC</div>
   </div>
 </template>
