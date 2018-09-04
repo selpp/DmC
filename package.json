@@ -5,9 +5,8 @@
     "lerna": "^3.1.4"
   },
   "scripts": {
-    "start": "npm run generate && npm run dev",
-    "dev": "cd ./packages/dmc_website && npm run dev",
-    "build": "cd ./packages/dmc_website && npm run build",
+    "dev": "npm run generate && cd ./packages/dmc_website && npm run dev",
+    "build": "npm run generate && cd ./packages/dmc_website && npm run build",
     "generate": "cd ./packages/dmc_tutorial && npm run generate"
   },
   "dependencies": {
