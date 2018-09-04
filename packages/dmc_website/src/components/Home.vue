@@ -36,7 +36,7 @@
             DmC is an Open Source projet.
             You can use it freely without worrying about adds or any charge.
             Feel free to propose new features for future versions but keep in mind
-            Dmc has to be simple and serve developpers.
+            DmC has to be simple and serve developpers.
           </p>
         </div>
         <div>
