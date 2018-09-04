@@ -29,7 +29,10 @@ let parse = (structured_lines, tokens_l, cursor) => {
       let from = parseInt(params[0]);
       let to = parseInt(params[2]);
       if(params[1] != 'to' || typeof(from) != typeof(1) || typeof(to) != typeof(1)) success = false;
-      else tokens_l.push(create(from, to));
+      else {
+        tokens_l.push(create(from, to));
+        tokens_l.push({ type: 'WAIT' });
+      }
     }
     else success = false;
   }
