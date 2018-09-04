@@ -3,7 +3,7 @@
     <button @click="redirect('/')" v-on:mouseover="hover">Home</button>
     <button v-if="!presentation" @click="redirect('/session')" v-on:mouseover="hover">Session</button>
     <button v-if="!presentation" @click="redirect('/tutorial')" v-on:mouseover="hover">Tutorial</button>
-    <button v-if="!presentation" @click="redirect('/')" v-on:mouseover="hover">Donate</button>
+    <div id="nav-logo">DmC</div>
   </div>
 </template>
 
@@ -30,6 +30,13 @@ export default {
   width: 100%;
   top: 0px;
   left: 0px;
-  background-color: #282b32;
+  background-color: #17181c;
+}
+#nav-logo {
+  float: right;
+  font-weight: bold;
+  font-size: 25px;
+  border: solid 3px #dadee7;
+  margin: 15px 25px;
 }
 </style>

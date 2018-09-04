@@ -18,7 +18,7 @@
 
     <div id="state">
       <div v-if="auto">auto</div>
-      <span>{{ actual }}</span><span>/</span><span>{{ total }}</span>
+      <span>{{ actual }}</span><span>/{{ total }}</span>
     </div>
 
     <div id="cursor">&#10148;</div>
@@ -41,7 +41,7 @@ export default {
       s_id: -1,
       processing: false,
       highlight: { opacity: 0 },
-      hidden: { opacity: 0.9 },
+      hidden: { opacity: 0.8 },
       elements: []
     }
   },
@@ -180,7 +180,7 @@ export default {
 #cover div{
   height: 20px;
   color: rgba(0, 0, 0, 0);
-  background-color: #282b32;
+  background-color: #17181c;
   width: 100%;
   overflow-x: hidden;
 }
@@ -190,7 +190,7 @@ export default {
   left: 0px;
   font-size: 20px;
   line-height: 25px;
-  margin-left: 8%;
+  margin-left: 10%;
 }
 
 pre {
@@ -200,14 +200,14 @@ pre {
   left: 0px;
   right: 0px;
   overflow-x: hidden;
-  max-width: 80%;
+  max-width: 70%;
 }
 code {
   padding: 0px;
   margin: 0px;
   font-size: 20px;
   line-height: 20px;
-  background-color: #282b32;
+  background-color: #17181c;
   width: 100%;
   overflow-x: hidden;
 }

@@ -40,7 +40,7 @@
         </div>
 
         <div v-if="script_stage >= 2" v-bind:class="(warnings)? 'stage-2-warnings': 'stage-2'">
-          <div>{{ (warnings)? '&#10071;' :'&#10004;' }}</div>
+          <div>{{ (warnings)? '!' :'&#10004;' }}</div>
         </div>
       </div>
 
@@ -123,26 +123,32 @@ export default {
 
 <style scoped>
 #session {
-  position: absolute;
   margin: 0px;
   padding: 0px;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background-color: #dadee7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 #session-container {
-  position: absolute;
   margin: 0px;
-  padding: 0px;
+  padding: 50px 0px;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-content: center;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.62)),
+    url('../assets/bckg.png');
 }
 #session-warnings {
   position: fixed;
@@ -166,11 +172,11 @@ export default {
   font-size: 14px;
   font-weight: bold;
   overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #17181c;
   text-align: center;
   pointer-events: all;
-  color: #a75919;
-  box-shadow: -1px 2px 10px 5px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: -1px 2px 10px 5px rgba(0, 0, 0, 0.5) inset;
+  color: #dadee7;
 }
 #session-warnings h2 {
   padding: 0px;
@@ -178,6 +184,7 @@ export default {
   margin-bottom: 25px;
   font-size: 25px;
   border: none;
+  color: #a75919;
 }
 
 .slide-enter-active { transition: 1.0s; }
@@ -193,9 +200,11 @@ input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inlin
 
 .stage-0 { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
-  font-size: 25px; font-weight: bold; text-transform: uppercase; color: rgba(196, 201, 212, 0.5);
-  border: solid 10px rgba(62, 25, 167, 0.47); border-radius: 25px; cursor: pointer; transition: 0.4s; }
-.stage-0:hover { border: solid 10px #3e19a7; color: #c4c9d4; }
+  font-size: 25px; font-weight: bold; text-transform: uppercase; color: #dadee7;
+  border: solid 10px #3e19a7; border-radius: 25px; cursor: pointer; transition: 0.4s; }
+.stage-0:hover {
+  background-color: rgba(62, 25, 167, 0.5);
+}
 
 .stage-1 { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
@@ -203,17 +212,19 @@ input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inlin
 
 .stage-2 { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
-  color: #c4c9d4; text-align: center;
+  color: #dadee7; text-align: center;
   border: solid 10px #19a767; border-radius: 25px; transition: 0.4s; }
 .stage-2-warnings { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
-  color: #c4c9d4; text-align: center;
+  color: #dadee7; text-align: center; font-weight: bold;
   border: solid 10px #a75919; border-radius: 25px; transition: 0.4s;}
 .stage-2-next { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
-  color: rgba(196, 201, 212, 0.5); text-align: center; cursor: pointer;
-  border: solid 10px rgba(62, 25, 167, 0.47); border-radius: 25px; transition: 0.4s; }
-.stage-2-next:hover { border: solid 10px #3e19a7; color: #c4c9d4; }
+  color: #dadee7; text-align: center; cursor: pointer;
+  border: solid 10px #3e19a7; border-radius: 25px; transition: 0.4s; }
+.stage-2-next:hover {
+  background-color: rgba(62, 25, 167, 0.5);
+}
 
 .stage-2 div { width: 100%; height: 100%; margin: 0px; padding: 0px;
   display: grid; grid-template-columns: 1fr; justify-content: center; align-content: center;
@@ -233,14 +244,14 @@ input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inlin
 
 .stage-2-next div { width: 100%; height: 100%; margin: 0px; padding: 0px;
   display: grid; grid-template-columns: 1fr; justify-content: center; align-content: center;
-  font-size: 120px; animation: stage-2-next 1.8s linear infinite; }
+  font-size: 120px; animation: stage-2-next 1.8s linear infinite; pointer-events: none; }
 @keyframes stage-2-next {
   0%, 100% { font-size: 120px; }
   50% { font-size: 140px; }
 }
 
 .lds-grid { width: 100%; height: 100%; display: grid; grid-template-columns: repeat(3, 1fr); }
-.lds-grid div { background-color: #c4c9d4; border-radius: 50%; margin: 30px; animation: lds-grid 1.8s linear infinite; }
+.lds-grid div { background-color: #dadee7; border-radius: 50%; margin: 30px; animation: lds-grid 1.8s linear infinite; }
 .lds-grid div:nth-child(1) { transform: translate(40px, 40px); animation-delay: -0.8s; }
 .lds-grid div:nth-child(2) { transform: translate(0px, 40px); animation-delay: -0.4s; }
 .lds-grid div:nth-child(3) { transform: translate(-40px, 40px); animation-delay: -0.0s; }

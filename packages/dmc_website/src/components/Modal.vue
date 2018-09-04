@@ -93,7 +93,44 @@ iframe {
   width: 500px;
   height: 500px;
   fill: #1a1e26;
-  background-color: #c4c9d4;
+  background-color: #dadee7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  border-style: solid;
+  border-width: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+h1 {
+  padding: 50px;
+  font-size: 50px;
+  border-color: #a71961;
+}
+h2 {
+  padding: 40px;
+  font-size: 40px;
+  border-color: #7a19a7;
+}
+h3 {
+  padding: 35px;
+  font-size: 35px;
+  border-color: #3e19a7;
+}
+h4 {
+  padding: 30px;
+  font-size: 30px;
+  border-color: #1941a7;
+}
+h5 {
+  padding: 27px;
+  font-size: 27px;
+  border-color: #1963a7;
+}
+h6 {
+  padding: 25px;
+  font-size: 25px;
+  border-color: #1996a7;
 }
 
 </style>
