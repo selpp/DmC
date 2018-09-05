@@ -74,7 +74,7 @@ export default {
     reset_all: function() { this.reset_modal(); this.reset_highlights(); },
     reverse_auto: function() {
       if(this.auto == true) this.auto = false;
-      else { this.auto = true; this.processing = true; this.next(); }
+      else { this.auto = true; this.processing = true; this.do_next(); }
     },
 
     handle_key: function(e) {
