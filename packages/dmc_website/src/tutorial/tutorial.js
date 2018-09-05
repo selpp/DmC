@@ -1,130 +1,144 @@
 let tuto_code = "" +
-"# DMC Language Howto\n" + 
+"# Advices\n" + 
+"	show info To ensure you the best experience youm may need to follow some advices\n" + 
+"	show info\n" + 
+"		The experience is slightly better on the Chrome browser\n" + 
+"		if you enable some advanced features\n" + 
+"	show info\n" + 
+"		If you are a Chrome user please enable 'Experimental Web Platform features'\n" + 
+"		by going to the URL: 'chrome://flags'\n" + 
+"	show info Use 'F11' to toggle fullscreen, enjoy...\n" + 
+"\n" + 
+"# DmC Language Howto\n" + 
 "	show line -1\n" + 
-"	show info Welcome to the DMC language howto\n" + 
-"	show info This tutorial will teach you the key principles of the DMC's language\n" + 
+"	show info Welcome to the DmC language 'Howto'\n" + 
+"	show info This tutorial will teach you the key principles of the DmC's language\n" + 
 "\n" + 
-"	## Language Structure\n" + 
-"	move to line 1\n" + 
-"	show line 1 to 100\n" + 
-"	show info\n" + 
-"		Here you can see the DMC file for this tutorial,\n" + 
-"		the DMC code is a script language to describe how your\n" + 
-"		presentation should look\n" + 
+"		## Language Structure\n" + 
+"			move to line 1\n" + 
+"			show line 1 to 141\n" + 
+"			show info\n" + 
+"				Here you can see the DmC file for this tutorial,\n" + 
+"				the DmC code is a script language to describe how your\n" + 
+"				presentation should look\n" + 
+"			show info\n" + 
+"				We tried to keep the language syntax overhead to a minimal,\n" + 
+"				so you can focus on your presentation\n" + 
+"			show line -1\n" + 
 "\n" + 
-"	show info\n" + 
-"		We tried to keep the language syntax overhead to a minimal,\n" + 
-"		so you can focus on your presentation\n" + 
+"			### Language key words\n" + 
+"				show info There are a few key words in the DmC language:\n" + 
 "\n" + 
-"	## Language key words\n" + 
-"	show info\n" + 
-"		There are a few key words in the DMC language:\n" + 
+"				// HEADERS\n" + 
+"				show info\n" + 
+"					'# HEADER' highlight the main structure of your presentation.\n" + 
+"					It is inspired from Markdown and displays a big text in a rectangle.\n" + 
+"					There are 6 levels of headers (html tag h1 to h6)\n" + 
+"				# HEADER 1\n" + 
+"				## HEADER 2\n" + 
+"				### HEADER 3\n" + 
+"				#### HEADER 4\n" + 
+"				##### HEADER 5\n" + 
+"				###### HEADER 6\n" + 
 "\n" + 
-"	// HEADERS\n" + 
-"	show info\n" + 
-"		\"# HEADER\" highlight the main structure of your presentation\n" + 
-"		It is inspired from Markdown and displays a big text in a rectangle\n" + 
-"	# EXAMPLE\n" + 
+"				// show info\n" + 
+"				show info The 'show' instruction helps you by showing various components\n" + 
+"				show info 'show info' Shows additional text informations\n" + 
 "\n" + 
-"	show info\n" + 
-"		the \"show\" instruction helps you by showing various components\n" + 
-"	show info \"show info\" Shows additional text informations\n" + 
+"				// show image\n" + 
+"				show info 'show image' shows an image from an URL\n" + 
+"				show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg\n" + 
 "\n" + 
-"	// show image\n" + 
-"	show info \"show image\" Shows an image from an URL\n" + 
-"	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg\n" + 
+"				// show youtube\n" + 
+"				show info 'show youtube' shows a youtube video with its videoID\n" + 
+"				show youtube hVEPXzve5EY\n" + 
 "\n" + 
-"	// show youtube\n" + 
-"	show info \"show youtube\" shows a youtube video with its videoID\n" + 
-"	show youtube hVEPXzve5EY\n" + 
+"				// show line\n" + 
+"				show info 'show line X to Y' highlights lines of your code from line X to line Y\n" + 
+"				move to line 1\n" + 
+"				show line 1 to 2\n" + 
+"				show line 4\n" + 
+"				show line 2 to 9\n" + 
+"				show info 'show line' can be interspersed with other commands\n" + 
+"				show line 4 to 10\n" + 
+"				show line -1\n" + 
+"				move to line 1\n" + 
 "\n" + 
-"	// show line\n" + 
-"	show info \"show line X to Y\" highlights lines of your code from line X to line Y\n" + 
-"	move to line 0\n" + 
-"	show line 1 to 2\n" + 
-"	wait\n" + 
-"	show line 4\n" + 
-"	wait\n" + 
-"	show line 3 to 7\n" + 
-"	wait\n" + 
-"	show info \"show line\" can be interspersed with other commands\n" + 
-"	show line 4 to 10\n" + 
-"	show line -1\n" + 
-"	move to line 0\n" + 
+"				//show qrcode\n" + 
+"				show info\n" + 
+"					'show qrcode' can be used to display a qrcode\n" + 
+"					Here is a qrcode to google.com\n" + 
+"				show qrcode http://google.com\n" + 
 "\n" + 
-"	//show qrcode\n" + 
-"	show info\n" + 
-"		\"show qrcode\" can be used to display a qrcode\n" + 
-"		Here is a qrcode to google.com\n" + 
+"				// show maths\n" + 
+"				show info\n" + 
+"					'show maths' work the same as 'show info' but shows\n" + 
+"					maths equations written in Katex syntax. Katex is\n" + 
+"					Latex for web so don't worry the syntax is the same.\n" + 
+"				show maths \frac{a_i}{1+x}\n" + 
+"				show maths\n" + 
+"					\frac{ \frac{a_i}{1+x} }{ \frac{a_i}{1+x} } = 1\n" + 
 "\n" + 
-"	show qrcode http://google.com\n" + 
+"				// move to line\n" + 
+"				show info 'move to line X' moves the focus to the given line X\n" + 
+"				show line 1 to 100\n" + 
+"				move to line 10\n" + 
+"				wait\n" + 
+"				move to line 100\n" + 
+"				wait\n" + 
 "\n" + 
-"	// move to line\n" + 
-"	show info \"move to line X\" moves the focus to the given line\n" + 
-"	show line 1 to 100\n" + 
-"	move to line 4\n" + 
-"	wait\n" + 
-"	move to line 30\n" + 
-"	wait\n" + 
+"				// wait\n" + 
+"				show info\n" + 
+"					You can force the presentation to wait until a key is pressed at certain points\n" + 
+"					with the 'wait' command\n" + 
+"				wait\n" + 
 "\n" + 
-"	// wait\n" + 
-"	show info\n" + 
-"		You can force the presentation to wait until a key is pressed at certain points\n" + 
-"		with the \"wait\" command\n" + 
-"	wait\n" + 
+"		## Language syntax\n" + 
+"			move to line 95\n" + 
+"			show line 95 to 104\n" + 
+"			show info The language doesn't bother with indentation levels (1 exception below)\n" + 
+"			show info this works as well\n" + 
+"							show info This also works, but is ugly as hell\n" + 
 "\n" + 
+"			show info\n" + 
+"				Show info's arguments can be given on multiple lines\n" + 
+"				If the indentation the indentation is respected\n" + 
 "\n" + 
+"			// Comment\n" + 
+"			/*\n" + 
+"				Multi Line\n" + 
+"				Comment\n" + 
+"			*/\n" + 
 "\n" + 
-"	## Language syntax\n" + 
-"	move to line 59\n" + 
-"	show line 70 to 81\n" + 
-"	show info The language doesn't bother with indentation levels (1 exception below)\n" + 
-"show info this works as well\n" + 
-"					show info This also works, but is ugly as hell\n" + 
+"			show info Comments are possible\n" + 
+"			move to line 106\n" + 
+"			show line 106 to 110\n" + 
 "\n" + 
-"	show info\n" + 
-"		Show info's arguments can be given on multiple lines\n" + 
-"		If the indentation the indentation is respected\n" + 
+"			show info And as you can see, DmC doesn't requires quotes to give textual information\n" + 
+"			show info But you can't use escape sequences \n \t \r etc..\n" + 
+"			show info You can't add comments at the end of a show info // no comment\n" + 
 "\n" + 
+"			show line -1\n" + 
+"			move to line 1\n" + 
 "\n" + 
-"	// comment\n" + 
-"	/*\n" + 
-"	Multi line comments\n" + 
-"	*/\n" + 
-"\n" + 
-"	show info Comments are possible\n" + 
-"	move to line 81\n" + 
-"	show line 83 to 86\n" + 
-"	wait\n" + 
-"\n" + 
-"	show info And as you can see, DMC doesn't requires quotes to give textual information.\n" + 
-"	show info But you can't use escape sequences \n \t \r etc..\n" + 
-"	show info You can't add comments at the end of a show info // no comment\n" + 
-"\n" + 
-"	# Using the website\n" + 
-"	show info The website tab bar has a few options\n" + 
-"	show info \"Home\" brings you back to the homepage\n" + 
+"# Using the website\n" + 
+"	show info The website nav bar has a few options\n" + 
+"	show info 'Home' brings you back to the homepage\n" + 
 "	show image https://i.kym-cdn.com/entries/icons/mobile/000/000/015/oreally.jpg\n" + 
 "\n" + 
-"	show info \"Session\" asks you the code document and the the dmc file to start your presentation\n" + 
-"	show info If the dmc file contains warnings, the border will turn orange.\n" + 
-"	show info The warnings are shwown in the console, so you can show off a bit\n" + 
+"	show info 'Session' asks you the code document and the the DmC file to start your presentation\n" + 
+"	show info If the DmC file contains warnings, the border will turn orange.\n" + 
+"	show info The warnings are shwown at the page's bottom\n" + 
 "	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg\n" + 
 "\n" + 
-"	show info Click \"Tutorial\" to go	 back to this presentation\n" + 
+"	show info Click 'Tutorial' to go back to this presentation\n" + 
 "\n" + 
 "	show info\n" + 
-"		The \"Donate\" button brings Peace to the world\n" + 
-"		don't hesitate to click it.\n" + 
-"		Seriously though, donations are always appreciated. Thank you for your support !\n" + 
+"		The 'Donate' button brings Peace to the world don't hesitate to click it.\n" + 
+"		Seriously though, donations are always appreciated. Thank you for your support!\n" + 
+"	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg\n" + 
 "\n" + 
-"	# The END\n" + 
-"\n" + 
-"	## Maths\n" + 
-"	show info \"show maths\" work the same as \"show info\" but shows maths equations written in Katex syntax\n" + 
-"	show maths \frac{a_i}{1+x}\n" + 
-"	show maths\n" + 
-"		\frac{\frac{a_i}{1+x}}{\frac{a_i}{1+x}} = 1\n" + 
+"# The END\n" + 
 "\n" + 
 "\n";
 
@@ -134,11 +148,52 @@ let tuto_seq = {
       "type": "HEADER",
       "params": {
         "lvl": 1,
-        "content": "DMC Language Howto"
+        "content": "Advices"
       }
     }
   ],
   "1": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "To ensure you the best experience youm may need to follow some advices"
+      }
+    }
+  ],
+  "2": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "The experience is slightly better on the Chrome browser\nif you enable some advanced features\n"
+      }
+    }
+  ],
+  "3": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "If you are a Chrome user please enable 'Experimental Web Platform features'\nby going to the URL: 'chrome://flags'\n"
+      }
+    }
+  ],
+  "4": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "Use 'F11' to toggle fullscreen, enjoy..."
+      }
+    }
+  ],
+  "5": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 1,
+        "content": "DmC Language Howto"
+      }
+    }
+  ],
+  "6": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -149,19 +204,19 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "Welcome to the DMC language howto"
+        "content": "Welcome to the DmC language 'Howto'"
       }
     }
   ],
-  "2": [
+  "7": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "This tutorial will teach you the key principles of the DMC's language"
+        "content": "This tutorial will teach you the key principles of the DmC's language"
       }
     }
   ],
-  "3": [
+  "8": [
     {
       "type": "HEADER",
       "params": {
@@ -170,7 +225,7 @@ let tuto_seq = {
       }
     }
   ],
-  "4": [
+  "9": [
     {
       "type": "MOVE TO",
       "params": {
@@ -181,57 +236,15 @@ let tuto_seq = {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
-        "to": 100
-      }
-    }
-  ],
-  "5": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "Here you can see the DMC file for this tutorial,\nthe DMC code is a script language to describe how your\npresentation should look\n"
-      }
-    }
-  ],
-  "6": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "We tried to keep the language syntax overhead to a minimal,\nso you can focus on your presentation\n"
-      }
-    }
-  ],
-  "7": [
-    {
-      "type": "HEADER",
-      "params": {
-        "lvl": 2,
-        "content": "Language key words"
-      }
-    }
-  ],
-  "8": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "There are a few key words in the DMC language:\n"
-      }
-    }
-  ],
-  "9": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "\"# HEADER\" highlight the main structure of your presentation\nIt is inspired from Markdown and displays a big text in a rectangle\n"
+        "to": 141
       }
     }
   ],
   "10": [
     {
-      "type": "HEADER",
+      "type": "SHOW INFO",
       "params": {
-        "lvl": 1,
-        "content": "EXAMPLE"
+        "content": "Here you can see the DmC file for this tutorial,\nthe DmC code is a script language to describe how your\npresentation should look\n"
       }
     }
   ],
@@ -239,15 +252,23 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "the \"show\" instruction helps you by showing various components\n"
+        "content": "We tried to keep the language syntax overhead to a minimal,\nso you can focus on your presentation\n"
       }
     }
   ],
   "12": [
     {
-      "type": "SHOW INFO",
+      "type": "SHOW LINE",
       "params": {
-        "content": "\"show info\" Shows additional text informations"
+        "from": -1,
+        "to": null
+      }
+    },
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 3,
+        "content": "Language key words"
       }
     }
   ],
@@ -255,11 +276,97 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show image\" Shows an image from an URL"
+        "content": "There are a few key words in the DmC language:"
       }
     }
   ],
   "14": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'# HEADER' highlight the main structure of your presentation.\nIt is inspired from Markdown and displays a big text in a rectangle.\nThere are 6 levels of headers (html tag h1 to h6)\n"
+      }
+    }
+  ],
+  "15": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 1,
+        "content": "HEADER 1"
+      }
+    }
+  ],
+  "16": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 2,
+        "content": "HEADER 2"
+      }
+    }
+  ],
+  "17": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 3,
+        "content": "HEADER 3"
+      }
+    }
+  ],
+  "18": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 4,
+        "content": "HEADER 4"
+      }
+    }
+  ],
+  "19": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 5,
+        "content": "HEADER 5"
+      }
+    }
+  ],
+  "20": [
+    {
+      "type": "HEADER",
+      "params": {
+        "lvl": 6,
+        "content": "HEADER 6"
+      }
+    }
+  ],
+  "21": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "The 'show' instruction helps you by showing various components"
+      }
+    }
+  ],
+  "22": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'show info' Shows additional text informations"
+      }
+    }
+  ],
+  "23": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'show image' shows an image from an URL"
+      }
+    }
+  ],
+  "24": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -267,15 +374,15 @@ let tuto_seq = {
       }
     }
   ],
-  "15": [
+  "25": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show youtube\" shows a youtube video with its videoID"
+        "content": "'show youtube' shows a youtube video with its videoID"
       }
     }
   ],
-  "16": [
+  "26": [
     {
       "type": "SHOW YOUTUBE",
       "params": {
@@ -283,19 +390,19 @@ let tuto_seq = {
       }
     }
   ],
-  "17": [
+  "27": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show line X to Y\" highlights lines of your code from line X to line Y"
+        "content": "'show line X to Y' highlights lines of your code from line X to line Y"
       }
     }
   ],
-  "18": [
+  "28": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 0
+        "to": 1
       }
     },
     {
@@ -306,33 +413,31 @@ let tuto_seq = {
       }
     }
   ],
-  "19": [
+  "29": [
     {
       "type": "SHOW LINE",
       "params": {
         "from": 4,
         "to": null
       }
-    }
-  ],
-  "20": [
+    },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 3,
-        "to": 7
+        "from": 2,
+        "to": 9
       }
     }
   ],
-  "21": [
+  "30": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show line\" can be interspersed with other commands"
+        "content": "'show line' can be interspersed with other commands"
       }
     }
   ],
-  "22": [
+  "31": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -341,7 +446,7 @@ let tuto_seq = {
       }
     }
   ],
-  "23": [
+  "32": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -352,17 +457,17 @@ let tuto_seq = {
     {
       "type": "MOVE TO",
       "params": {
-        "to": 0
+        "to": 1
       }
     },
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"show qrcode\" can be used to display a qrcode\nHere is a qrcode to google.com\n"
+        "content": "'show qrcode' can be used to display a qrcode\nHere is a qrcode to google.com\n"
       }
     }
   ],
-  "24": [
+  "33": [
     {
       "type": "SHOW QRCODE",
       "params": {
@@ -371,15 +476,39 @@ let tuto_seq = {
       }
     }
   ],
-  "25": [
+  "34": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"move to line X\" moves the focus to the given line"
+        "content": "'show maths' work the same as 'show info' but shows\nmaths equations written in Katex syntax. Katex is\nLatex for web so don't worry the syntax is the same.\n"
       }
     }
   ],
-  "26": [
+  "35": [
+    {
+      "type": "SHOW MATHS",
+      "params": {
+        "content": "\\frac{a_i}{1+x}"
+      }
+    }
+  ],
+  "36": [
+    {
+      "type": "SHOW MATHS",
+      "params": {
+        "content": "\\frac{ \\frac{a_i}{1+x} }{ \\frac{a_i}{1+x} } = 1\n"
+      }
+    }
+  ],
+  "37": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'move to line X' moves the focus to the given line X"
+      }
+    }
+  ],
+  "38": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -388,31 +517,31 @@ let tuto_seq = {
       }
     }
   ],
-  "27": [
+  "39": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 4
+        "to": 10
       }
     }
   ],
-  "28": [
+  "40": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 30
+        "to": 100
       }
     }
   ],
-  "29": [
+  "41": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "You can force the presentation to wait until a key is pressed at certain points\nwith the \"wait\" command\n"
+        "content": "You can force the presentation to wait until a key is pressed at certain points\nwith the 'wait' command\n"
       }
     }
   ],
-  "30": [
+  "42": [
     {
       "type": "HEADER",
       "params": {
@@ -421,22 +550,22 @@ let tuto_seq = {
       }
     }
   ],
-  "31": [
+  "43": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 59
+        "to": 95
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 70,
-        "to": 81
+        "from": 95,
+        "to": 104
       }
     }
   ],
-  "32": [
+  "44": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -444,7 +573,7 @@ let tuto_seq = {
       }
     }
   ],
-  "33": [
+  "45": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -452,7 +581,7 @@ let tuto_seq = {
       }
     }
   ],
-  "34": [
+  "46": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -460,7 +589,7 @@ let tuto_seq = {
       }
     }
   ],
-  "35": [
+  "47": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -468,7 +597,7 @@ let tuto_seq = {
       }
     }
   ],
-  "36": [
+  "48": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -476,30 +605,30 @@ let tuto_seq = {
       }
     }
   ],
-  "37": [
+  "49": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 81
+        "to": 106
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 83,
-        "to": 86
+        "from": 106,
+        "to": 110
       }
     }
   ],
-  "38": [
+  "50": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "And as you can see, DMC doesn't requires quotes to give textual information."
+        "content": "And as you can see, DmC doesn't requires quotes to give textual information"
       }
     }
   ],
-  "39": [
+  "51": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -507,7 +636,7 @@ let tuto_seq = {
       }
     }
   ],
-  "40": [
+  "52": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -515,7 +644,20 @@ let tuto_seq = {
       }
     }
   ],
-  "41": [
+  "53": [
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": -1,
+        "to": null
+      }
+    },
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 1
+      }
+    },
     {
       "type": "HEADER",
       "params": {
@@ -524,23 +666,23 @@ let tuto_seq = {
       }
     }
   ],
-  "42": [
+  "54": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "The website tab bar has a few options"
+        "content": "The website nav bar has a few options"
       }
     }
   ],
-  "43": [
+  "55": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"Home\" brings you back to the homepage"
+        "content": "'Home' brings you back to the homepage"
       }
     }
   ],
-  "44": [
+  "56": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -548,31 +690,31 @@ let tuto_seq = {
       }
     }
   ],
-  "45": [
+  "57": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "\"Session\" asks you the code document and the the dmc file to start your presentation"
+        "content": "'Session' asks you the code document and the the DmC file to start your presentation"
       }
     }
   ],
-  "46": [
+  "58": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "If the dmc file contains warnings, the border will turn orange."
+        "content": "If the DmC file contains warnings, the border will turn orange."
       }
     }
   ],
-  "47": [
+  "59": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "The warnings are shwown in the console, so you can show off a bit"
+        "content": "The warnings are shwown at the page's bottom"
       }
     }
   ],
-  "48": [
+  "60": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -580,61 +722,36 @@ let tuto_seq = {
       }
     }
   ],
-  "49": [
+  "61": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "Click \"Tutorial\" to go\t back to this presentation"
+        "content": "Click 'Tutorial' to go back to this presentation"
       }
     }
   ],
-  "50": [
+  "62": [
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "The \"Donate\" button brings Peace to the world\ndon't hesitate to click it.\nSeriously though, donations are always appreciated. Thank you for your support !\n"
+        "content": "The 'Donate' button brings Peace to the world don't hesitate to click it.\nSeriously though, donations are always appreciated. Thank you for your support!\n"
       }
     }
   ],
-  "51": [
+  "63": [
+    {
+      "type": "SHOW IMAGE",
+      "params": {
+        "url": "https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg"
+      }
+    }
+  ],
+  "64": [
     {
       "type": "HEADER",
       "params": {
         "lvl": 1,
         "content": "The END"
-      }
-    }
-  ],
-  "52": [
-    {
-      "type": "HEADER",
-      "params": {
-        "lvl": 2,
-        "content": "Maths"
-      }
-    }
-  ],
-  "53": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "\"show maths\" work the same as \"show info\" but shows maths equations written in Katex syntax"
-      }
-    }
-  ],
-  "54": [
-    {
-      "type": "SHOW MATHS",
-      "params": {
-        "content": "\\frac{a_i}{1+x}"
-      }
-    }
-  ],
-  "55": [
-    {
-      "type": "SHOW MATHS",
-      "params": {
-        "content": "\\frac{\\frac{a_i}{1+x}}{\\frac{a_i}{1+x}} = 1\n"
       }
     }
   ]

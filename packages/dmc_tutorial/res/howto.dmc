@@ -1,126 +1,140 @@
-# DMC Language Howto
+# Advices
+	show info To ensure you the best experience youm may need to follow some advices
+	show info
+		The experience is slightly better on the Chrome browser
+		if you enable some advanced features
+	show info
+		If you are a Chrome user please enable 'Experimental Web Platform features'
+		by going to the URL: 'chrome://flags'
+	show info Use 'F11' to toggle fullscreen, enjoy...
+
+# DmC Language Howto
 	show line -1
-	show info Welcome to the DMC language howto
-	show info This tutorial will teach you the key principles of the DMC's language
+	show info Welcome to the DmC language 'Howto'
+	show info This tutorial will teach you the key principles of the DmC's language
 
-	## Language Structure
-	move to line 1
-	show line 1 to 100
-	show info
-		Here you can see the DMC file for this tutorial,
-		the DMC code is a script language to describe how your
-		presentation should look
+		## Language Structure
+			move to line 1
+			show line 1 to 141
+			show info
+				Here you can see the DmC file for this tutorial,
+				the DmC code is a script language to describe how your
+				presentation should look
+			show info
+				We tried to keep the language syntax overhead to a minimal,
+				so you can focus on your presentation
+			show line -1
 
-	show info
-		We tried to keep the language syntax overhead to a minimal,
-		so you can focus on your presentation
+			### Language key words
+				show info There are a few key words in the DmC language:
 
-	## Language key words
-	show info
-		There are a few key words in the DMC language:
+				// HEADERS
+				show info
+					'# HEADER' highlight the main structure of your presentation.
+					It is inspired from Markdown and displays a big text in a rectangle.
+					There are 6 levels of headers (html tag h1 to h6)
+				# HEADER 1
+				## HEADER 2
+				### HEADER 3
+				#### HEADER 4
+				##### HEADER 5
+				###### HEADER 6
 
-	// HEADERS
-	show info
-		"# HEADER" highlight the main structure of your presentation
-		It is inspired from Markdown and displays a big text in a rectangle
-	# EXAMPLE
+				// show info
+				show info The 'show' instruction helps you by showing various components
+				show info 'show info' Shows additional text informations
 
-	show info
-		the "show" instruction helps you by showing various components
-	show info "show info" Shows additional text informations
+				// show image
+				show info 'show image' shows an image from an URL
+				show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg
 
-	// show image
-	show info "show image" Shows an image from an URL
-	show image https://img00.deviantart.net/8c9d/i/2017/196/c/2/metamorphie_faciesse_by_taitsujin-dbgeh6a.jpg
+				// show youtube
+				show info 'show youtube' shows a youtube video with its videoID
+				show youtube hVEPXzve5EY
 
-	// show youtube
-	show info "show youtube" shows a youtube video with its videoID
-	show youtube hVEPXzve5EY
+				// show line
+				show info 'show line X to Y' highlights lines of your code from line X to line Y
+				move to line 1
+				show line 1 to 2
+				show line 4
+				show line 2 to 9
+				show info 'show line' can be interspersed with other commands
+				show line 4 to 10
+				show line -1
+				move to line 1
 
-	// show line
-	show info "show line X to Y" highlights lines of your code from line X to line Y
-	move to line 0
-	show line 1 to 2
-	wait
-	show line 4
-	wait
-	show line 3 to 7
-	wait
-	show info "show line" can be interspersed with other commands
-	show line 4 to 10
-	show line -1
-	move to line 0
+				//show qrcode
+				show info
+					'show qrcode' can be used to display a qrcode
+					Here is a qrcode to google.com
+				show qrcode http://google.com
 
-	//show qrcode
-	show info
-		"show qrcode" can be used to display a qrcode
-		Here is a qrcode to google.com
+				// show maths
+				show info
+					'show maths' work the same as 'show info' but shows
+					maths equations written in Katex syntax. Katex is
+					Latex for web so don't worry the syntax is the same.
+				show maths \frac{a_i}{1+x}
+				show maths
+					\frac{ \frac{a_i}{1+x} }{ \frac{a_i}{1+x} } = 1
 
-	show qrcode http://google.com
+				// move to line
+				show info 'move to line X' moves the focus to the given line X
+				show line 1 to 100
+				move to line 10
+				wait
+				move to line 100
+				wait
 
-	// move to line
-	show info "move to line X" moves the focus to the given line
-	show line 1 to 100
-	move to line 4
-	wait
-	move to line 30
-	wait
+				// wait
+				show info
+					You can force the presentation to wait until a key is pressed at certain points
+					with the 'wait' command
+				wait
 
-	// wait
-	show info
-		You can force the presentation to wait until a key is pressed at certain points
-		with the "wait" command
-	wait
+		## Language syntax
+			move to line 95
+			show line 95 to 104
+			show info The language doesn't bother with indentation levels (1 exception below)
+			show info this works as well
+							show info This also works, but is ugly as hell
 
+			show info
+				Show info's arguments can be given on multiple lines
+				If the indentation the indentation is respected
 
+			// Comment
+			/*
+				Multi Line
+				Comment
+			*/
 
-	## Language syntax
-	move to line 59
-	show line 70 to 81
-	show info The language doesn't bother with indentation levels (1 exception below)
-show info this works as well
-					show info This also works, but is ugly as hell
+			show info Comments are possible
+			move to line 106
+			show line 106 to 110
 
-	show info
-		Show info's arguments can be given on multiple lines
-		If the indentation the indentation is respected
+			show info And as you can see, DmC doesn't requires quotes to give textual information
+			show info But you can't use escape sequences \n \t \r etc..
+			show info You can't add comments at the end of a show info // no comment
 
+			show line -1
+			move to line 1
 
-	// comment
-	/*
-	Multi line comments
-	*/
-
-	show info Comments are possible
-	move to line 81
-	show line 83 to 86
-	wait
-
-	show info And as you can see, DMC doesn't requires quotes to give textual information.
-	show info But you can't use escape sequences \n \t \r etc..
-	show info You can't add comments at the end of a show info // no comment
-
-	# Using the website
-	show info The website tab bar has a few options
-	show info "Home" brings you back to the homepage
+# Using the website
+	show info The website nav bar has a few options
+	show info 'Home' brings you back to the homepage
 	show image https://i.kym-cdn.com/entries/icons/mobile/000/000/015/oreally.jpg
 
-	show info "Session" asks you the code document and the the dmc file to start your presentation
-	show info If the dmc file contains warnings, the border will turn orange.
-	show info The warnings are shwown in the console, so you can show off a bit
+	show info 'Session' asks you the code document and the the DmC file to start your presentation
+	show info If the DmC file contains warnings, the border will turn orange.
+	show info The warnings are shwown at the page's bottom
 	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg
 
-	show info Click "Tutorial" to go	 back to this presentation
+	show info Click 'Tutorial' to go back to this presentation
 
 	show info
-		The "Donate" button brings Peace to the world
-		don't hesitate to click it.
-		Seriously though, donations are always appreciated. Thank you for your support !
+		The 'Donate' button brings Peace to the world don't hesitate to click it.
+		Seriously though, donations are always appreciated. Thank you for your support!
+	show image https://i.kym-cdn.com/entries/icons/mobile/000/025/351/afoeeee.jpg
 
-	# The END
-
-	## Maths
-	show info "show maths" work the same as "show info" but shows maths equations written in Katex syntax
-	show maths \frac{a_i}{1+x}
-	show maths
-		\frac{\frac{a_i}{1+x}}{\frac{a_i}{1+x}} = 1
+# The END

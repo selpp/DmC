@@ -5,7 +5,11 @@
         <h1>DmC</h1>
         <h3>Draw my Code</h3>
       </div>
-      <p>The code driven presentation tool built for developpers. Generate gorgeous presentations using the DmC script language.</p>
+      <p>
+        The code driven presentation tool built for developpers.
+        Generate gorgeous presentations using the DmC script language.
+        Use arrows to navigate between slides.
+      </p>
       <div id="dmc-buttons">
         <button @click="redirect('https://github.com/selpp/dmc')" v-on:mouseover="hover">Github</button>
       </div>
