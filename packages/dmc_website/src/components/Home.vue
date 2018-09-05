@@ -3,7 +3,10 @@
     <section id="dmc" :style="dmc">
       <div id="dmc-title">
         <h1>DmC</h1>
-        <h3>Draw my Code</h3>
+        <div id="dmc-sub">
+          <h3>Draw my Code</h3>
+        </div>
+        <img src="@/assets/hand.gif"/>
       </div>
       <p>
         The code driven presentation tool built for developpers.
@@ -143,6 +146,19 @@ export default {
 #dmc-title {
   margin: 25px 0;
 }
+#dmc-title img {
+  position: relative;
+  max-width: 60px;
+  margin-top: -100px;
+  left: 0px;
+  animation: hand 5s linear infinite;
+}
+@keyframes hand {
+    0%   { left: -150px; }
+    80%  { left: 150px; }
+    100% { left: -150px; }
+}
+
 #dmc h3 {
   font-size: 40px;
   font-weight: bold;
@@ -150,6 +166,21 @@ export default {
   padding: 0px;
   margin: 0px;
 }
+#dmc-sub {
+  max-width: 0%;
+  overflow: hidden;
+  height: 35px;
+  text-align: left;
+  animation: sub 5s linear infinite;
+}
+@keyframes sub {
+  0%   { max-width: 0%; }
+  80%  { max-width: 100%; }
+  98%  { max-width: 100%; }
+  100% { max-width: 0%; }
+}
+
+
 #dmc p {
   width: 50%;
   margin: auto;
