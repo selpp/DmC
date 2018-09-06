@@ -11,5 +11,20 @@
     "dmc_compiler": "^0.0.1"
   },
   "author": "Yliess HATI & Gregor JOUET",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/selpp/DmC#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selpp/DmC.git"
+  },
+  "bugs": {
+    "url": "https://github.com/selpp/DmC/issues"
+  }
 }
