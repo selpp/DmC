@@ -6,13 +6,22 @@
   },
   "scripts": {
     "dev": "npm run generate && cd ./packages/dmc_website && npm run dev",
-    "build": "npm run generate && cd ./packages/dmc_website && npm run build",
-    "generate": "cd ./packages/dmc_tutorial && npm run generate"
+    "build": "lerna bootstrap && npm run generate && cd ./packages/dmc_website && npm run build",
+    "generate": "cd ./packages/dmc_tutorial && npm run generate",
+
+    "publish": "npm run publish-website",
+    "publish-website": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && cd ./packages/dmc_website/dist && git add . && git commit -m \"Increased version to $version\" && git push origin master",
+
+    "preversion": "npm run build && npm run test",
+    "postversion": "npm run publish",
+
+    "test": "echo 'Where are the tests?",
+
+    "patch": "npm version patch -m 'Increased version to %s'",
+    "minor": "npm version minor -m 'Increased version to %s'",
+    "major": "npm version major -m 'Increased version to %s'"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.4",
-    "@fortawesome/free-solid-svg-icons": "^5.3.1",
-    "@fortawesome/vue-fontawesome": "^0.1.1",
     "i": "^0.3.6",
     "npm": "^6.4.1"
   }

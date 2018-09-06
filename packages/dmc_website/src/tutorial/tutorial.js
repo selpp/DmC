@@ -16,7 +16,7 @@ let tuto_code = "" +
 "\n" + 
 "		## Language Structure\n" + 
 "			move to line 1\n" + 
-"			show line 1 to 141\n" + 
+"			show line 1 to 145\n" + 
 "			show info\n" + 
 "				Here you can see the DmC file for this tutorial,\n" + 
 "				the DmC code is a script language to describe how your\n" + 
@@ -98,8 +98,8 @@ let tuto_code = "" +
 "				wait\n" + 
 "\n" + 
 "		## Language syntax\n" + 
-"			move to line 95\n" + 
-"			show line 95 to 104\n" + 
+"			move to line 99\n" + 
+"			show line 99 to 105\n" + 
 "			show info The language doesn't bother with indentation levels (1 exception below)\n" + 
 "			show info this works as well\n" + 
 "							show info This also works, but is ugly as hell\n" + 
@@ -116,7 +116,7 @@ let tuto_code = "" +
 "\n" + 
 "			show info Comments are possible\n" + 
 "			move to line 106\n" + 
-"			show line 106 to 110\n" + 
+"			show line 110 to 115\n" + 
 "\n" + 
 "			show info And as you can see, DmC doesn't requires quotes to give textual information\n" + 
 "			show info But you can't use escape sequences \n \t \r etc..\n" + 
@@ -240,7 +240,7 @@ let tuto_seq = {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
-        "to": 141
+        "to": 145
       }
     }
   ],
@@ -574,14 +574,14 @@ let tuto_seq = {
     {
       "type": "MOVE TO",
       "params": {
-        "to": 95
+        "to": 99
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 95,
-        "to": 104
+        "from": 99,
+        "to": 105
       }
     }
   ],
@@ -635,8 +635,8 @@ let tuto_seq = {
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 106,
-        "to": 110
+        "from": 110,
+        "to": 115
       }
     }
   ],
