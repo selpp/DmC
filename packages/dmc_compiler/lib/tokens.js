@@ -7,6 +7,7 @@ const show_info = require( './token/show_info');
 const show_line = require( './token/show_line');
 const show_maths = require( './token/show_maths');
 const show_youtube = require( './token/show_youtube');
+const show_sound = require( './token/show_sound');
 const show_qrcode = require('./token/show_qrcode');
 const wait = require( './token/wait');
 
@@ -20,6 +21,7 @@ module.exports = {
   'show_line': { order: 4 , struct: show_line },
   'show_maths': { order: 5 , struct: show_maths },
   'show_youtube': { order: 5 , struct: show_youtube },
+  'show_sound': { order: 5 , struct: show_sound },
   'show_qrcode': {order: 5, struct: show_qrcode},
   'wait': { order: 6, struct: wait }
 };

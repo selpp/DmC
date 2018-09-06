@@ -16,9 +16,13 @@
       v-bind:src="'https://www.youtube.com/embed/' + modal.content + '?autoplay=1&showinfo=0&controls=0'">
       </iframe>
       <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
+      <audio v-if="modal.type == 'SOUND'" controls autoplay>
+        <source v-bind:src="modal.content" v-bind:type="sound_extension" />
+      </audio>
 
       <a v-if="modal.type == 'QRCODE'" v-bind:href="modal.content.url">{{ modal.content.url }}</a>
       <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content">{{ modal.content }}</a>
+      <a v-if="modal.type == 'SOUND'" v-bind:href="modal.content">{{ modal.content }}</a>
       <a v-if="modal.type == 'YOUTUBE'" v-bind:href="'https://www.youtube.com/watch?v=' + modal.content">{{ 'https://www.youtube.com/watch?v=' + modal.content }}</a>
     </div>
   </div>
@@ -27,7 +31,16 @@
 <script>
 export default {
   name: 'Modal',
-  props: [ 'modal' ]
+  props: [ 'modal' ],
+  computed: {
+    sound_extension: function() {
+      return (
+        this.modal.content.includes('mp3')? 'audio/mpeg':
+        this.modal.content.includes('oog')? 'audio/ogg':
+        'audio/wav'
+      );
+    }
+  }
 }
 </script>
 

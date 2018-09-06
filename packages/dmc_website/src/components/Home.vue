@@ -90,7 +90,6 @@
     <section id="soon">
       <h1>Comming Soon</h1>
       <ul>
-        <li>Show sound</li>
         <li>Websocket Q&A after presentation</li>
       </ul>
       <div id="soon-footer">

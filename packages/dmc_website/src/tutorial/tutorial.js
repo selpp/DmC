@@ -53,6 +53,10 @@ let tuto_code = "" +
 "				show info 'show youtube' shows a youtube video with its videoID\n" + 
 "				show youtube hVEPXzve5EY\n" + 
 "\n" + 
+"				// show sound\n" + 
+"				show info 'show sound' is able to play you a audio given an URL\n" + 
+"				show sound http://live02.rfi.fr/rfimonde-64.mp3\n" + 
+"\n" + 
 "				// show line\n" + 
 "				show info 'show line X to Y' highlights lines of your code from line X to line Y\n" + 
 "				move to line 1\n" + 
@@ -394,11 +398,27 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "'show line X to Y' highlights lines of your code from line X to line Y"
+        "content": "'show sound' is able to play you a audio given an URL"
       }
     }
   ],
   "28": [
+    {
+      "type": "SHOW SOUND",
+      "params": {
+        "url": "http://live02.rfi.fr/rfimonde-64.mp3"
+      }
+    }
+  ],
+  "29": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'show line X to Y' highlights lines of your code from line X to line Y"
+      }
+    }
+  ],
+  "30": [
     {
       "type": "MOVE TO",
       "params": {
@@ -413,7 +433,7 @@ let tuto_seq = {
       }
     }
   ],
-  "29": [
+  "31": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -429,7 +449,7 @@ let tuto_seq = {
       }
     }
   ],
-  "30": [
+  "32": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -437,7 +457,7 @@ let tuto_seq = {
       }
     }
   ],
-  "31": [
+  "33": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -446,7 +466,7 @@ let tuto_seq = {
       }
     }
   ],
-  "32": [
+  "34": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -467,7 +487,7 @@ let tuto_seq = {
       }
     }
   ],
-  "33": [
+  "35": [
     {
       "type": "SHOW QRCODE",
       "params": {
@@ -476,7 +496,7 @@ let tuto_seq = {
       }
     }
   ],
-  "34": [
+  "36": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -484,7 +504,7 @@ let tuto_seq = {
       }
     }
   ],
-  "35": [
+  "37": [
     {
       "type": "SHOW MATHS",
       "params": {
@@ -492,7 +512,7 @@ let tuto_seq = {
       }
     }
   ],
-  "36": [
+  "38": [
     {
       "type": "SHOW MATHS",
       "params": {
@@ -500,7 +520,7 @@ let tuto_seq = {
       }
     }
   ],
-  "37": [
+  "39": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -508,7 +528,7 @@ let tuto_seq = {
       }
     }
   ],
-  "38": [
+  "40": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -517,7 +537,7 @@ let tuto_seq = {
       }
     }
   ],
-  "39": [
+  "41": [
     {
       "type": "MOVE TO",
       "params": {
@@ -525,7 +545,7 @@ let tuto_seq = {
       }
     }
   ],
-  "40": [
+  "42": [
     {
       "type": "MOVE TO",
       "params": {
@@ -533,7 +553,7 @@ let tuto_seq = {
       }
     }
   ],
-  "41": [
+  "43": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -541,7 +561,7 @@ let tuto_seq = {
       }
     }
   ],
-  "42": [
+  "44": [
     {
       "type": "HEADER",
       "params": {
@@ -550,7 +570,7 @@ let tuto_seq = {
       }
     }
   ],
-  "43": [
+  "45": [
     {
       "type": "MOVE TO",
       "params": {
@@ -565,7 +585,7 @@ let tuto_seq = {
       }
     }
   ],
-  "44": [
+  "46": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -573,7 +593,7 @@ let tuto_seq = {
       }
     }
   ],
-  "45": [
+  "47": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -581,7 +601,7 @@ let tuto_seq = {
       }
     }
   ],
-  "46": [
+  "48": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -589,7 +609,7 @@ let tuto_seq = {
       }
     }
   ],
-  "47": [
+  "49": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -597,7 +617,7 @@ let tuto_seq = {
       }
     }
   ],
-  "48": [
+  "50": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -605,7 +625,7 @@ let tuto_seq = {
       }
     }
   ],
-  "49": [
+  "51": [
     {
       "type": "MOVE TO",
       "params": {
@@ -620,7 +640,7 @@ let tuto_seq = {
       }
     }
   ],
-  "50": [
+  "52": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -628,7 +648,7 @@ let tuto_seq = {
       }
     }
   ],
-  "51": [
+  "53": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -636,7 +656,7 @@ let tuto_seq = {
       }
     }
   ],
-  "52": [
+  "54": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -644,7 +664,7 @@ let tuto_seq = {
       }
     }
   ],
-  "53": [
+  "55": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -666,7 +686,7 @@ let tuto_seq = {
       }
     }
   ],
-  "54": [
+  "56": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -674,7 +694,7 @@ let tuto_seq = {
       }
     }
   ],
-  "55": [
+  "57": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -682,7 +702,7 @@ let tuto_seq = {
       }
     }
   ],
-  "56": [
+  "58": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -690,7 +710,7 @@ let tuto_seq = {
       }
     }
   ],
-  "57": [
+  "59": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -698,7 +718,7 @@ let tuto_seq = {
       }
     }
   ],
-  "58": [
+  "60": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -706,7 +726,7 @@ let tuto_seq = {
       }
     }
   ],
-  "59": [
+  "61": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -714,7 +734,7 @@ let tuto_seq = {
       }
     }
   ],
-  "60": [
+  "62": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -722,7 +742,7 @@ let tuto_seq = {
       }
     }
   ],
-  "61": [
+  "63": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -730,7 +750,7 @@ let tuto_seq = {
       }
     }
   ],
-  "62": [
+  "64": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -738,7 +758,7 @@ let tuto_seq = {
       }
     }
   ],
-  "63": [
+  "65": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -746,7 +766,7 @@ let tuto_seq = {
       }
     }
   ],
-  "64": [
+  "66": [
     {
       "type": "HEADER",
       "params": {

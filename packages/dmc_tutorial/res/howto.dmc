@@ -15,7 +15,7 @@
 
 		## Language Structure
 			move to line 1
-			show line 1 to 141
+			show line 1 to 145
 			show info
 				Here you can see the DmC file for this tutorial,
 				the DmC code is a script language to describe how your
@@ -51,6 +51,10 @@
 				// show youtube
 				show info 'show youtube' shows a youtube video with its videoID
 				show youtube hVEPXzve5EY
+
+				// show sound
+				show info 'show sound' is able to play you a audio given an URL
+				show sound http://live02.rfi.fr/rfimonde-64.mp3
 
 				// show line
 				show info 'show line X to Y' highlights lines of your code from line X to line Y
@@ -93,8 +97,8 @@
 				wait
 
 		## Language syntax
-			move to line 95
-			show line 95 to 104
+			move to line 99
+			show line 99 to 105
 			show info The language doesn't bother with indentation levels (1 exception below)
 			show info this works as well
 							show info This also works, but is ugly as hell
@@ -111,7 +115,7 @@
 
 			show info Comments are possible
 			move to line 106
-			show line 106 to 110
+			show line 110 to 115
 
 			show info And as you can see, DmC doesn't requires quotes to give textual information
 			show info But you can't use escape sequences \n \t \r etc..
