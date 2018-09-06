@@ -1,6 +1,6 @@
 {
   "name": "dmc_website",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The Draw My Code Website",
   "author": "",
   "private": true,
@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "dmc_compiler": "^0.1.1",
+    "dmc_compiler": "^0.1.2",
     "highlight.js": "^9.12.0",
     "vue": "^2.5.2",
     "vue-highlightjs": "^1.3.3",
