@@ -1,7 +1,7 @@
 {
   "name": "dmc_website",
   "version": "1.0.1",
-  "description": "A Vue.js project",
+  "description": "The Draw My Code Website",
   "author": "",
   "private": true,
   "scripts": {
