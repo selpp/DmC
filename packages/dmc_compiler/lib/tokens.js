@@ -1,6 +1,7 @@
 const comment_multi = require('./token/comment_multi');
 const comment = require( './token/comment');
 const header = require( './token/header');
+const open = require( './token/open');
 const move_to_line = require( './token/move_to_line');
 const show_image = require( './token/show_image');
 const show_info = require( './token/show_info');
@@ -15,6 +16,7 @@ module.exports = {
   'comment_multi': { order: 1 , struct: comment_multi },
   'comment': { order: 2 , struct: comment },
   'header': { order: 3 , struct: header },
+  'open': { order: 5, open },
   'move_to_line': { order: 4 , struct: move_to_line },
   'show_image': { order: 4 , struct: show_image },
   'show_info': { order: 5 , struct: show_info },
