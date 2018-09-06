@@ -11,7 +11,7 @@
     "publish": "npm run publish-website",
     "publish-website": "cd ./packages/dmc_website && version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && echo \"Website Version $version\" && cd dist && git add . && git commit -m \"Increased version to $version\" && git push origin master",
     "preversion": "npm run build && npm run test",
-    "postversion": "npm run publish",
+    "postversion": "git push && npm run publish",
     "test": "echo 'Where are the tests?'"
 
   },
