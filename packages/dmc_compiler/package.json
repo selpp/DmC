@@ -1,6 +1,6 @@
 {
   "name": "dmc_compiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parser for the DmC scripting language",
   "main": "index.js",
   "scripts": {
