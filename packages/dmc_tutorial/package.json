@@ -8,7 +8,7 @@
     "generate": "node ./index.js"
   },
   "dependencies": {
-    "dmc_compiler": "^0.0.3"
+    "dmc_compiler": "^0.1.0"
   },
   "author": "Yliess HATI & Gregor JOUET",
   "license": "MIT",
