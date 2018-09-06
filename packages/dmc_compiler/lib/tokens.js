@@ -16,7 +16,7 @@ module.exports = {
   'comment_multi': { order: 1 , struct: comment_multi },
   'comment': { order: 2 , struct: comment },
   'header': { order: 3 , struct: header },
-  'open': { order: 5, open },
+  'open': { order: 5, struct: open },
   'move_to_line': { order: 4 , struct: move_to_line },
   'show_image': { order: 4 , struct: show_image },
   'show_info': { order: 5 , struct: show_info },
