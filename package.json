@@ -13,7 +13,6 @@
     "preversion": "npm run build && npm run test",
     "postversion": "git push && npm run publish",
     "test": "echo 'Where are the tests?'"
-
   },
   "dependencies": {
     "i": "^0.3.6",
