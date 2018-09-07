@@ -23,7 +23,7 @@ export default new Router({
       path: '/tutorial',
       name: 'Tutorial',
       component: Presentation,
-      props: { code: tuto_code, sequences: tuto_seq }
+      props: { codes: { "tuto_code": tuto_code }, sequences: tuto_seq }
     },
     {
       path: '/donate',

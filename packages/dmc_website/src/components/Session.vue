@@ -1,12 +1,12 @@
 <template>
-  <Presentation v-if="presentation == true" :code="source_content" :sequences="script_content.sequences"/>
+  <Presentation v-if="presentation == true" :codes="sources_content" :sequences="script_content.sequences"/>
   <div v-else id="session">
     <div id="session-container">
       <div>
         <div v-if="source_stage == 0" class="stage-0">
-          <input name="source" id="source" type="file" @change="get_file($event, 'source')" v-bind:accept="supported"/>
-          <label for="source" @click="click" v-on:mouseover="hover">
-            <strong>source</strong>
+          <input name="sources" id="sources" type="file" @change="get_sources_files($event)" v-bind:accept="supported" multiple/>
+          <label for="sources" @click="click" v-on:mouseover="hover">
+            <strong>sources</strong>
           </label>
         </div>
 
@@ -25,7 +25,7 @@
 
       <div>
         <div v-if="script_stage == 0" class="stage-0">
-          <input name="script" id="script" type="file" @change="get_file($event, 'script')" accept=".dmc"/>
+          <input name="script" id="script" type="file" @change="get_script_file($event)" accept=".dmc"/>
           <label for="script" @click="click" v-on:mouseover="hover">
             <strong>script</strong>
           </label>
@@ -76,9 +76,10 @@ export default {
   data: function() {
     return {
       presentation: false,
-      source_stage: 0, script_stage: 0, source_content: null, script_content: null,
+      source_stage: 0, script_stage: 0, sources_content: null, script_content: null,
       supported: '.dmc, .md, .c, .h, .cpp, .hpp, .java, .js, .cs, .html, .css, .coffee,' +
-                 '.python, .lua, .d, .txt, .sql, .json, .xml, .xhtml, .scss, .vue, .gitignore'
+                 '.py, .lua, .d, .txt, .sql, .json, .xml, .xhtml, .scss, .vue,' +
+                 '.gitignore'
     };
   },
   computed: {
@@ -91,26 +92,28 @@ export default {
   methods: {
     hover: function() { sound.play('BUTTON_HOVER'); },
     click: function() { sound.play('BUTTON_CLICK'); },
-    get_file: function(e, type) {
+    get_sources_files: function(e) {
+      let files = e.target.files;
+      this.source_stage++;
+      setTimeout(() => {
+        this.sources_content = {};
+        for (let i = 0; i < files.length; i++) {
+          let file = files[i];
+          const reader = new FileReader();
+          reader.onload = e => { this.sources_content[file.name] = e.target.result; };
+          reader.readAsText(file);
+        }
+        setTimeout(() => { sound.play('LOADING'); this.source_stage++; }, files.length * 500);
+      }, 1000);
+    },
+    get_script_file: function(e) {
       let file = e.target.files[0];
-      switch (type) {
-        case 'source': this.source_stage++; break;
-        case 'script': this.script_stage++; break;
-      }
+      this.script_stage++;
       setTimeout(() => {
           const reader = new FileReader();
-          switch (type) {
-            case 'source':
-              reader.onload = e => { this.source_content = e.target.result; };
-              reader.readAsText(file);
-              setTimeout(() => { sound.play('LOADING'); this.source_stage++; }, 1000);
-              break;
-            case 'script':
-              reader.onload = e => { this.script_content = compiler(e.target.result); };
-              reader.readAsText(file);
-              setTimeout(() => { sound.play((this.warnings)? 'FILE_WARNING' :'LOADING'); this.script_stage++; }, 1000);
-              break;
-          }
+          reader.onload = e => { this.script_content = compiler(e.target.result); };
+          reader.readAsText(file);
+          setTimeout(() => { sound.play((this.warnings)? 'FILE_WARNING' :'LOADING'); this.script_stage++; }, 1000);
       }, 1000);
     },
     start_session: function() {

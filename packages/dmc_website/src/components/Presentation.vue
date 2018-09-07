@@ -1,7 +1,7 @@
 <template>
   <div id="presentation">
     <div id="code">
-      <pre v-highlightjs><code>{{ code }}</code></pre>
+      <pre v-highlightjs="code"><code></code></pre>
       <div id="cover">
         <div v-for="(line, index) in lines" :key="index"
           v-bind:id="'l' + index"
@@ -32,13 +32,14 @@ import sound from '@/sound/sound';
 export default {
   name: 'Presentation',
   components: { Modal },
-  props: [ 'code', 'sequences' ],
+  props: [ 'codes', 'sequences' ],
   data: function () {
     return {
       modal: null,
       highlights: null,
       auto: false,
       s_id: -1,
+      code: this.codes[Object.keys(this.codes)[0]],
       processing: false,
       highlight: { opacity: 0 },
       hidden: { opacity: 0.8 },
@@ -55,8 +56,14 @@ export default {
     if(this.auto == true) { this.processing = true; this.do_next(); }
     this.elements = this.$refs['l'];
     this.move_to(0);
+    this.codes['error'] = 'No file loaded...';
   },
   methods: {
+    set_code: function(f_name) {
+      let c = null; c = this.codes[f_name];
+      if(c == null) c = 'File [' + f_name + '] does not exists or has not be found...';
+      this.code = c;
+    },
     move_to: function(index) {
       index--;
       let i = (index < 0)? 0: (index >= this.lines.length)? this.lines.length - 1: index;
@@ -108,6 +115,7 @@ export default {
           case 'SHOW QRCODE': this.reset_modal(); this.set_modal({ type: 'QRCODE', content: { url: action.params.url, qrcode: action.params.base64 } }); break;
           case 'SHOW LINE': this.reset_all(); this.set_highlights(action.params.from, action.params.to); break;
           case 'MOVE TO': this.reset_modal(); this.move_to(action.params.to); break;
+          case 'OPEN': this.reset_all(); this.set_code(action.params.source); break;
           default: break;
         }
         let time = (this.auto == true)? 5000: 0;
