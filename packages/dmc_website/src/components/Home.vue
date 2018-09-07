@@ -11,7 +11,7 @@
       <p>
         The code driven presentation tool built for developpers.
         Generate gorgeous presentations using the DmC script language.
-        Use arrows to navigate between slides.
+        Use left and right arrows to navigate between slides.
       </p>
       <div id="dmc-buttons">
         <button @click="redirect('https://github.com/selpp/dmc')" v-on:mouseover="hover">Github</button>
@@ -26,32 +26,31 @@
           <p>
             DmC Generates beautiful code driven presentations.
             The presentation contains animations for scrolling,
-            modals and a beautiful dark theme to avoid any eye injury.
+            modals and a beautiful dark theme to avoid any eye injuries.
           </p>
         </div>
         <div>
           <h2><font-awesome-icon icon="chess-queen" /> Simple</h2>
           <p>
-            DmC is easy to use and user friendly.
+            DmC is user friendly, you can learn how to use it under 5 minutes.
             You just need a text editor and a web browser.
-            Upload your source file, your '.dmc' script and this is it.
+            Upload your source files, your '.dmc' script and this is it.
           </p>
         </div>
         <div>
           <h2><font-awesome-icon icon="coffee" /> Open Source</h2>
           <p>
-            DmC is an Open Source projet.
-            You can use it freely without worrying about adds or any charge.
+            DmC is an Open Source project.
+            You can use it freely without worrying about adds or any charges.
             Feel free to propose new features for future versions but keep in mind
-            DmC has to be simple and serve developpers.
+            DmC has to be simple and has to serve developpers.
           </p>
         </div>
         <div>
           <h2><font-awesome-icon icon="spinner" /> Static WebPage</h2>
           <p>
             DmC's web page is static. It does not require any page refresh.
-            It has been developed using VueJS.
-            It may use some advance web future.
+            This web application has been developed using VueJS and may use some advance web future.
             Please refer to the tutorial for more informations.
           </p>
         </div>
