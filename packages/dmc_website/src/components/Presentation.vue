@@ -211,6 +211,10 @@ pre {
   right: 0px;
   overflow-x: hidden;
   max-width: 70%;
+
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
 }
 code {
   padding: 0px;
