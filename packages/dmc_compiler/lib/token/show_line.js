@@ -23,7 +23,10 @@ let parse = (structured_lines, tokens_l, cursor) => {
     if(params.length == 1) {
       let from = parseInt(params[0]);
       if(typeof(from) != typeof(1)) success = false;
-      else tokens_l.push(create(from, null));
+      else {
+        tokens_l.push(create(from, null));
+        tokens_l.push({ type: 'WAIT' });
+      }
     }
     else if(params.length == 3) {
       let from = parseInt(params[0]);
