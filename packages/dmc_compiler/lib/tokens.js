@@ -10,6 +10,8 @@ const show_maths = require( './token/show_maths');
 const show_youtube = require( './token/show_youtube');
 const show_sound = require( './token/show_sound');
 const show_qrcode = require('./token/show_qrcode');
+const show_quote = require('./token/show_quote');
+const show_warn = require('./token/show_warn');
 const wait = require( './token/wait');
 
 module.exports = {
@@ -20,6 +22,8 @@ module.exports = {
   'move_to_line': { order: 4 , struct: move_to_line },
   'show_image': { order: 4 , struct: show_image },
   'show_info': { order: 5 , struct: show_info },
+  'show_quote': { order: 5 , struct: show_quote },
+  'show_warn': { order: 5 , struct: show_warn },
   'show_line': { order: 4 , struct: show_line },
   'show_maths': { order: 5 , struct: show_maths },
   'show_youtube': { order: 5 , struct: show_youtube },
