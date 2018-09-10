@@ -1,9 +1,49 @@
+var request = require('request')
+  , cheerio = require('cheerio')
+
 let command = 'show quote from';
+
+
+let get_face = (name) => {
+
+  // From images-scraper
+  // https://github.com/pevers/images-scraper
+
+  var roptions = {
+		'url': 'http://www.bing.com/images/search?q=%&view=detailv2'.replace('%', encodeURIComponent(name)),
+		'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
+  };
+  
+  var face   = null;
+  var finish = false;
+
+  request(roptions, function (err, response, body) {
+    console.log(roptions.url)
+    if (!err && response.statusCode === 200) {
+      // extract all items, go to next page if exist
+      var $ = cheerio.load(body);
+      $('.item a[class="thumb"]').each(function (el) {
+        var item = $(this).attr('href');
+        face = item;
+        console.log("Face of "+name+": "+item)
+      });
+    } else {
+      console.log("err", err)
+    }
+
+    finish = true; 
+  });
+
+
+
+  return face;
+}
 
 let create = (from, content) => {
   return {
     type: 'SHOW QUOTE',
     params: {
+      face: get_face(from),
       from: from,
       content: content
     }

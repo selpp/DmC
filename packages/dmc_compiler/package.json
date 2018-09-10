@@ -9,6 +9,8 @@
   "author": "Yliess HATI & Gregor JOUET",
   "license": "MIT",
   "dependencies": {
-    "qr-image": "^3.2.0"
+    "qr-image": "^3.2.0",
+    "request": "^2.88.0",
+    "cheerio": "^1.0.0-rc.2"
   }
 }
