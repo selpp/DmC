@@ -11,10 +11,7 @@
       <div v-if="modal.type == 'MATHS'" v-katex:display="modal.content"></div>
 
       <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
-
-      <div v-if="modal.type == 'WARN'" id="modal-warn-border-top"></div>
-      <pre v-if="modal.type == 'WARN'" id="modal-warn">{{ '\n' + modal.content }}</pre>
-      <div v-if="modal.type == 'WARN'" id="modal-warn-border-bottom"></div>
+      <h1 v-if="modal.type == 'WARN'" id="modal-warn">{{ '\n' + modal.content }}</h1>
 
       <div v-if="modal.type == 'QUOTE'" id="modal-quote">
         <img v-if="modal.content.face != null" :src="modal.content.face" />
@@ -59,24 +56,7 @@ export default {
 
 <style scoped>
 #modal-warn {
-  width: 70%;
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-}
-#modal-warn-border-top {
-  display: block;
-  width: 100%;
-  height: 10px;
-  background-color: #a75919;
-  margin-bottom: 20px;
-}
-#modal-warn-border-bottom {
-  display: block;
-  width: 100%;
-  height: 10px;
-  background-color: #a75919;
-  margin-top: 40px;
+    border-color: #a75919;
 }
 
 #modal-quote {
