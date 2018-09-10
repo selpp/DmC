@@ -15,7 +15,7 @@
 
 		## Language Structure
 			move to line 1
-			show line 1 to 145
+			show line 1 to 156
 			show info
 				Here you can see the DmC file for this tutorial,
 				the DmC code is a script language to describe how your
@@ -81,6 +81,24 @@
 				show maths \frac{a_i}{1+x}
 				show maths
 					\frac{ \frac{a_i}{1+x} }{ \frac{a_i}{1+x} } = 1
+
+				// show quote
+				show info
+					You can use 'show quote' to show a quote from someone
+					show quote from Einstein
+						I am everywhere on the web
+					will show youa quote from Einstein
+				
+				show quote from Einstein
+						I am everywhere on the web
+
+				// show warn
+				show info
+					If you want to attract your veiwer's attention, you can use
+					"show warn" just like show info
+				
+				show warn
+					This is important !
 
 				// move to line
 				show info 'move to line X' moves the focus to the given line X
