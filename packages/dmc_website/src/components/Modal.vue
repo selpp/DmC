@@ -56,7 +56,12 @@ export default {
 
 <style scoped>
 #modal-warn {
-    border-color: #a75919;
+    border-color: rgba(167, 89, 25, 1);
+    animation: modal-warn 1s linear infinite;
+}
+@keyframes modal-warn {
+  0%, 100% { border-color: rgba(167, 89, 25, 1) }
+  50% { border-color: rgba(167, 89, 25, 0.5) }
 }
 
 #modal-quote {
