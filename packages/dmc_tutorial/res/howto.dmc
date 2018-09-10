@@ -85,18 +85,18 @@
 				// show quote
 				show info
 					You can use 'show quote' to show a quote from someone
-					show quote from Einstein
-						I am everywhere on the web
-					will show youa quote from Einstein
-				
+					Example:
+						show quote from Einstein
+							I am everywhere on the web
+
 				show quote from Einstein
 						I am everywhere on the web
 
 				// show warn
 				show info
-					If you want to attract your veiwer's attention, you can use
-					"show warn" just like show info
-				
+					If you want to attract your veiwer's attention,
+					you can use "show warn" just like show info
+
 				show warn
 					This is important !
 
@@ -115,8 +115,8 @@
 				wait
 
 		## Language syntax
-			move to line 99
-			show line 99 to 105
+			move to line 117
+			show line 120 to 122
 			show info The language doesn't bother with indentation levels (1 exception below)
 			show info this works as well
 							show info This also works, but is ugly as hell
@@ -132,8 +132,8 @@
 			*/
 
 			show info Comments are possible
-			move to line 106
-			show line 110 to 115
+			move to line 128
+			show line 128 to 132
 
 			show info And as you can see, DmC doesn't requires quotes to give textual information
 			show info But you can't use escape sequences \n \t \r etc..

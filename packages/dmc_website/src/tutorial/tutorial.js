@@ -86,18 +86,18 @@ let tuto_code = "" +
 "				// show quote\n" + 
 "				show info\n" + 
 "					You can use 'show quote' to show a quote from someone\n" + 
-"					show quote from Einstein\n" + 
-"						I am everywhere on the web\n" + 
-"					will show youa quote from Einstein\n" + 
-"				\n" + 
+"					Example:\n" + 
+"						show quote from Einstein\n" + 
+"							I am everywhere on the web\n" + 
+"\n" + 
 "				show quote from Einstein\n" + 
 "						I am everywhere on the web\n" + 
 "\n" + 
 "				// show warn\n" + 
 "				show info\n" + 
-"					If you want to attract your veiwer's attention, you can use\n" + 
-"					\"show warn\" just like show info\n" + 
-"				\n" + 
+"					If you want to attract your veiwer's attention,\n" + 
+"					you can use \"show warn\" just like show info\n" + 
+"\n" + 
 "				show warn\n" + 
 "					This is important !\n" + 
 "\n" + 
@@ -116,8 +116,8 @@ let tuto_code = "" +
 "				wait\n" + 
 "\n" + 
 "		## Language syntax\n" + 
-"			move to line 99\n" + 
-"			show line 99 to 105\n" + 
+"			move to line 117\n" + 
+"			show line 120 to 122\n" + 
 "			show info The language doesn't bother with indentation levels (1 exception below)\n" + 
 "			show info this works as well\n" + 
 "							show info This also works, but is ugly as hell\n" + 
@@ -133,8 +133,8 @@ let tuto_code = "" +
 "			*/\n" + 
 "\n" + 
 "			show info Comments are possible\n" + 
-"			move to line 106\n" + 
-"			show line 110 to 115\n" + 
+"			move to line 128\n" + 
+"			show line 128 to 132\n" + 
 "\n" + 
 "			show info And as you can see, DmC doesn't requires quotes to give textual information\n" + 
 "			show info But you can't use escape sequences \n \t \r etc..\n" + 
@@ -550,7 +550,7 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "You can use 'show quote' to show a quote from someone\nshow quote from Einstein\n\tI am everywhere on the web\nwill show youa quote from Einstein\n"
+        "content": "You can use 'show quote' to show a quote from someone\nExample:\n\tshow quote from Einstein\n\t\tI am everywhere on the web\n"
       }
     }
   ],
@@ -568,7 +568,7 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "If you want to attract your veiwer's attention, you can use\n\"show warn\" just like show info\n"
+        "content": "If you want to attract your veiwer's attention,\nyou can use \"show warn\" just like show info\n"
       }
     }
   ],
@@ -634,14 +634,14 @@ let tuto_seq = {
     {
       "type": "MOVE TO",
       "params": {
-        "to": 99
+        "to": 117
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 99,
-        "to": 105
+        "from": 120,
+        "to": 122
       }
     }
   ],
@@ -689,14 +689,14 @@ let tuto_seq = {
     {
       "type": "MOVE TO",
       "params": {
-        "to": 106
+        "to": 128
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 110,
-        "to": 115
+        "from": 128,
+        "to": 132
       }
     }
   ],
