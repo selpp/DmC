@@ -112,6 +112,8 @@ export default {
           case 'SHOW IMAGE': this.reset_modal(); this.set_modal({ type: 'IMAGE', content: action.params.url }); break;
           case 'SHOW YOUTUBE': this.reset_modal(); this.set_modal({ type: 'YOUTUBE', content: action.params.url }); break;
           case 'SHOW SOUND': this.reset_modal(); this.set_modal({ type: 'SOUND', content: action.params.url }); break;
+          case 'SHOW WARN': this.reset_modal(); this.set_modal({ type: 'WARN', content: action.params.content }); break;
+          case 'SHOW QUOTE': this.reset_modal(); this.set_modal({ type: 'QUOTE', content: { face: null, from: action.params.from, content: action.params.content } }); break;
           case 'SHOW QRCODE': this.reset_modal(); this.set_modal({ type: 'QRCODE', content: { url: action.params.url, qrcode: action.params.base64 } }); break;
           case 'SHOW LINE': this.reset_all(); this.set_highlights(action.params.from, action.params.to); break;
           case 'MOVE TO': this.reset_modal(); this.move_to(action.params.to); break;
