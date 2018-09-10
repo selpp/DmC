@@ -16,7 +16,7 @@ let tuto_code = "" +
 "\n" + 
 "		## Language Structure\n" + 
 "			move to line 1\n" + 
-"			show line 1 to 145\n" + 
+"			show line 1 to 156\n" + 
 "			show info\n" + 
 "				Here you can see the DmC file for this tutorial,\n" + 
 "				the DmC code is a script language to describe how your\n" + 
@@ -83,6 +83,24 @@ let tuto_code = "" +
 "				show maths\n" + 
 "					\frac{ \frac{a_i}{1+x} }{ \frac{a_i}{1+x} } = 1\n" + 
 "\n" + 
+"				// show quote\n" + 
+"				show info\n" + 
+"					You can use 'show quote' to show a quote from someone\n" + 
+"					Example:\n" + 
+"						show quote from Einstein\n" + 
+"							I am everywhere on the web\n" + 
+"\n" + 
+"				show quote from Einstein\n" + 
+"						I am everywhere on the web\n" + 
+"\n" + 
+"				// show warn\n" + 
+"				show info\n" + 
+"					If you want to attract your veiwer's attention,\n" + 
+"					you can use \"show warn\" just like show info\n" + 
+"\n" + 
+"				show warn\n" + 
+"					This is important !\n" + 
+"\n" + 
 "				// move to line\n" + 
 "				show info 'move to line X' moves the focus to the given line X\n" + 
 "				show line 1 to 100\n" + 
@@ -98,8 +116,8 @@ let tuto_code = "" +
 "				wait\n" + 
 "\n" + 
 "		## Language syntax\n" + 
-"			move to line 99\n" + 
-"			show line 99 to 105\n" + 
+"			move to line 117\n" + 
+"			show line 120 to 122\n" + 
 "			show info The language doesn't bother with indentation levels (1 exception below)\n" + 
 "			show info this works as well\n" + 
 "							show info This also works, but is ugly as hell\n" + 
@@ -115,8 +133,8 @@ let tuto_code = "" +
 "			*/\n" + 
 "\n" + 
 "			show info Comments are possible\n" + 
-"			move to line 106\n" + 
-"			show line 110 to 115\n" + 
+"			move to line 128\n" + 
+"			show line 128 to 132\n" + 
 "\n" + 
 "			show info And as you can see, DmC doesn't requires quotes to give textual information\n" + 
 "			show info But you can't use escape sequences \n \t \r etc..\n" + 
@@ -242,7 +260,7 @@ let tuto_seq = {
       "type": "SHOW LINE",
       "params": {
         "from": 1,
-        "to": 145
+        "to": 156
       }
     }
   ],
@@ -532,11 +550,45 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "'move to line X' moves the focus to the given line X"
+        "content": "You can use 'show quote' to show a quote from someone\nExample:\n\tshow quote from Einstein\n\t\tI am everywhere on the web\n"
       }
     }
   ],
   "44": [
+    {
+      "type": "SHOW QUOTE",
+      "params": {
+        "face": null,
+        "from": "Einstein",
+        "content": "\tI am everywhere on the web\n"
+      }
+    }
+  ],
+  "45": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "If you want to attract your veiwer's attention,\nyou can use \"show warn\" just like show info\n"
+      }
+    }
+  ],
+  "46": [
+    {
+      "type": "SHOW WARN",
+      "params": {
+        "content": "This is important !\n"
+      }
+    }
+  ],
+  "47": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "'move to line X' moves the focus to the given line X"
+      }
+    }
+  ],
+  "48": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -545,7 +597,7 @@ let tuto_seq = {
       }
     }
   ],
-  "45": [
+  "49": [
     {
       "type": "MOVE TO",
       "params": {
@@ -553,7 +605,7 @@ let tuto_seq = {
       }
     }
   ],
-  "46": [
+  "50": [
     {
       "type": "MOVE TO",
       "params": {
@@ -561,7 +613,7 @@ let tuto_seq = {
       }
     }
   ],
-  "47": [
+  "51": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -569,7 +621,7 @@ let tuto_seq = {
       }
     }
   ],
-  "48": [
+  "52": [
     {
       "type": "HEADER",
       "params": {
@@ -578,50 +630,18 @@ let tuto_seq = {
       }
     }
   ],
-  "49": [
+  "53": [
     {
       "type": "MOVE TO",
       "params": {
-        "to": 99
+        "to": 117
       }
     },
     {
       "type": "SHOW LINE",
       "params": {
-        "from": 99,
-        "to": 105
-      }
-    }
-  ],
-  "50": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "The language doesn't bother with indentation levels (1 exception below)"
-      }
-    }
-  ],
-  "51": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "this works as well"
-      }
-    }
-  ],
-  "52": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "This also works, but is ugly as hell"
-      }
-    }
-  ],
-  "53": [
-    {
-      "type": "SHOW INFO",
-      "params": {
-        "content": "Show info's arguments can be given on multiple lines\nIf the indentation the indentation is respected\n"
+        "from": 120,
+        "to": 122
       }
     }
   ],
@@ -629,22 +649,15 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "Comments are possible"
+        "content": "The language doesn't bother with indentation levels (1 exception below)"
       }
     }
   ],
   "55": [
     {
-      "type": "MOVE TO",
+      "type": "SHOW INFO",
       "params": {
-        "to": 106
-      }
-    },
-    {
-      "type": "SHOW LINE",
-      "params": {
-        "from": 110,
-        "to": 115
+        "content": "this works as well"
       }
     }
   ],
@@ -652,7 +665,7 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "And as you can see, DmC doesn't requires quotes to give textual information"
+        "content": "This also works, but is ugly as hell"
       }
     }
   ],
@@ -660,7 +673,7 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "But you can't use escape sequences \\n \\t \\r etc.."
+        "content": "Show info's arguments can be given on multiple lines\nIf the indentation the indentation is respected\n"
       }
     }
   ],
@@ -668,11 +681,50 @@ let tuto_seq = {
     {
       "type": "SHOW INFO",
       "params": {
-        "content": "You can't add comments at the end of a show info // no comment"
+        "content": "Comments are possible"
       }
     }
   ],
   "59": [
+    {
+      "type": "MOVE TO",
+      "params": {
+        "to": 128
+      }
+    },
+    {
+      "type": "SHOW LINE",
+      "params": {
+        "from": 128,
+        "to": 132
+      }
+    }
+  ],
+  "60": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "And as you can see, DmC doesn't requires quotes to give textual information"
+      }
+    }
+  ],
+  "61": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "But you can't use escape sequences \\n \\t \\r etc.."
+      }
+    }
+  ],
+  "62": [
+    {
+      "type": "SHOW INFO",
+      "params": {
+        "content": "You can't add comments at the end of a show info // no comment"
+      }
+    }
+  ],
+  "63": [
     {
       "type": "SHOW LINE",
       "params": {
@@ -681,7 +733,7 @@ let tuto_seq = {
       }
     }
   ],
-  "60": [
+  "64": [
     {
       "type": "MOVE TO",
       "params": {
@@ -696,7 +748,7 @@ let tuto_seq = {
       }
     }
   ],
-  "61": [
+  "65": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -704,7 +756,7 @@ let tuto_seq = {
       }
     }
   ],
-  "62": [
+  "66": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -712,7 +764,7 @@ let tuto_seq = {
       }
     }
   ],
-  "63": [
+  "67": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -720,7 +772,7 @@ let tuto_seq = {
       }
     }
   ],
-  "64": [
+  "68": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -728,7 +780,7 @@ let tuto_seq = {
       }
     }
   ],
-  "65": [
+  "69": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -736,7 +788,7 @@ let tuto_seq = {
       }
     }
   ],
-  "66": [
+  "70": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -744,7 +796,7 @@ let tuto_seq = {
       }
     }
   ],
-  "67": [
+  "71": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -752,7 +804,7 @@ let tuto_seq = {
       }
     }
   ],
-  "68": [
+  "72": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -760,7 +812,7 @@ let tuto_seq = {
       }
     }
   ],
-  "69": [
+  "73": [
     {
       "type": "SHOW INFO",
       "params": {
@@ -768,7 +820,7 @@ let tuto_seq = {
       }
     }
   ],
-  "70": [
+  "74": [
     {
       "type": "SHOW IMAGE",
       "params": {
@@ -776,7 +828,7 @@ let tuto_seq = {
       }
     }
   ],
-  "71": [
+  "75": [
     {
       "type": "HEADER",
       "params": {
