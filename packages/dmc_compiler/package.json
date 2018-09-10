@@ -1,6 +1,6 @@
 {
   "name": "dmc_compiler",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Parser for the DmC scripting language",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
   "author": "Yliess HATI & Gregor JOUET",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "qr-image": "^3.2.0",
-    "request": "^2.88.0",
-    "cheerio": "^1.0.0-rc.2"
+    "request": "^2.88.0"
   }
 }
