@@ -68,6 +68,7 @@ export default {
   display: flex;
   flex-direction: row;
   grid-column-gap: 50px;
+  max-width: 70%;
   justify-content: center;
   align-content: center;
 }
@@ -77,10 +78,9 @@ export default {
 }
 blockquote {
   font-family: Georgia, serif;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
   font-style: italic;
-  width: 80%;
   margin: 0.25em 0;
   padding: 0.35em 40px;
   line-height: 1.45;
@@ -99,7 +99,7 @@ blockquote:before {
 }
 blockquote cite {
   color: #999999;
-  font-size: 18px;
+  font-size: 25px;
   display: block;
   margin-top: 5px;
 }
