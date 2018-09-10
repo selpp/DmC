@@ -11,6 +11,16 @@
       <div v-if="modal.type == 'MATHS'" v-katex:display="modal.content"></div>
 
       <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
+      <pre v-if="modal.type == 'WARN'" id="modal-warn">{{ '\n' + modal.content }}</pre>
+
+      <div v-if="modal.type == 'QUOTE'" id="modal-quote">
+        <img v-if="modal.content.face != null" :src="modal.content.face" />
+        <blockquote>
+          {{ modal.content.content }}
+          <cite>{{ modal.content.from }}</cite>
+        </blockquote>
+      </div>
+
       <div id="qrcode" v-if="modal.type == 'QRCODE'" v-html="modal.content.qrcode"></div>
       <iframe v-if="modal.type == 'YOUTUBE'" width="960" height="540"
       v-bind:src="'https://www.youtube.com/embed/' + modal.content + '?autoplay=1&showinfo=0&controls=0'">
@@ -45,6 +55,55 @@ export default {
 </script>
 
 <style scoped>
+#modal-warn {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#modal-quote {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 50px;
+  justify-content: center;
+  align-content: center;
+}
+#modal-quote img {
+  max-width: 250px;
+  max-height: 25px;
+}
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 50%;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #dadee7;
+}
+blockquote:before {
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: #7a7a7a;
+}
+blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+blockquote cite:before {
+  content: "\2014 \2009";
+}
+
+
+
 #modal {
   position: fixed;
   top: 0px;
