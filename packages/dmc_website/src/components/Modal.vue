@@ -11,7 +11,10 @@
       <div v-if="modal.type == 'MATHS'" v-katex:display="modal.content"></div>
 
       <pre v-if="modal.type == 'INFO'">{{ '\n' + modal.content }}</pre>
+
+      <div v-if="modal.type == 'WARN'" id="modal-warn-border-top"></div>
       <pre v-if="modal.type == 'WARN'" id="modal-warn">{{ '\n' + modal.content }}</pre>
+      <div v-if="modal.type == 'WARN'" id="modal-warn-border-bottom"></div>
 
       <div v-if="modal.type == 'QUOTE'" id="modal-quote">
         <img v-if="modal.content.face != null" :src="modal.content.face" />
@@ -56,13 +59,29 @@ export default {
 
 <style scoped>
 #modal-warn {
-  font-size: 25px;
+  width: 70%;
+  font-size: 40px;
   font-weight: bold;
+  text-align: center;
+}
+#modal-warn-border-top {
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: #a75919;
+  margin-bottom: 20px;
+}
+#modal-warn-border-bottom {
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: #a75919;
+  margin-top: 40px;
 }
 
 #modal-quote {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
   grid-column-gap: 50px;
   justify-content: center;
   align-content: center;
@@ -73,9 +92,10 @@ export default {
 }
 blockquote {
   font-family: Georgia, serif;
-  font-size: 18px;
+  font-size: 25px;
+  font-weight: bold;
   font-style: italic;
-  width: 50%;
+  width: 80%;
   margin: 0.25em 0;
   padding: 0.35em 40px;
   line-height: 1.45;
@@ -94,15 +114,13 @@ blockquote:before {
 }
 blockquote cite {
   color: #999999;
-  font-size: 14px;
+  font-size: 18px;
   display: block;
   margin-top: 5px;
 }
 blockquote cite:before {
   content: "\2014 \2009";
 }
-
-
 
 #modal {
   position: fixed;
