@@ -1,2 +1,3 @@
 - show youtube <id> at 4m35s
 - show questions ?
+- syntax highliters for atom & vscode
