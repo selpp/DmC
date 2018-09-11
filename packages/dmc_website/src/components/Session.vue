@@ -4,7 +4,7 @@
     <div id="session-container">
       <div>
         <div v-if="source_stage == 0" class="stage-0">
-          <input name="sources" id="sources" type="file" @change="get_sources_files($event)" v-bind:accept="supported" multiple/>
+          <input name="sources" id="sources" type="file" @change="get_sources_files($event)" multiple/>
           <label for="sources" @click="click" v-on:mouseover="hover">
             <strong>sources</strong>
           </label>
@@ -76,10 +76,7 @@ export default {
   data: function() {
     return {
       presentation: false,
-      source_stage: 0, script_stage: 0, sources_content: null, script_content: null,
-      supported: '.dmc, .md, .c, .h, .cpp, .hpp, .java, .js, .cs, .html, .css, .coffee,' +
-                 '.py, .lua, .d, .txt, .sql, .json, .xml, .xhtml, .scss, .vue,' +
-                 '.gitignore'
+      source_stage: 0, script_stage: 0, sources_content: null, script_content: null
     };
   },
   computed: {
