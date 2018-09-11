@@ -2,3 +2,5 @@
 - show questions ?
 - syntax highliters for atom & vscode
 - show info markdown support (*bold*, - bullet pointing)
+- publish presentation, zip it ?
+- préentation signées avec clefs: author, author key..., signature dans l'url
