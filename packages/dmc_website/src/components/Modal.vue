@@ -25,13 +25,14 @@
       <iframe v-if="modal.type == 'YOUTUBE'" width="960" height="540"
       v-bind:src="'https://www.youtube.com/embed/' + modal.content + '?autoplay=1&showinfo=0&controls=0'">
       </iframe>
-      <img v-if="modal.type == 'IMAGE'" v-bind:src="modal.content"/>
+      <img v-if="modal.type == 'IMAGE' && is_url == true" v-bind:src="modal.content"/>
+      <!-- <img v-if="modal.type == 'IMAGE' && is_url == false" v-bind:src="modal.content"/> -->
       <audio v-if="modal.type == 'SOUND'" controls autoplay>
         <source v-bind:src="modal.content" v-bind:type="sound_extension" />
       </audio>
 
       <a v-if="modal.type == 'QRCODE'" v-bind:href="modal.content.url">{{ modal.content.url }}</a>
-      <a v-if="modal.type == 'IMAGE'" v-bind:href="modal.content">{{ modal.content }}</a>
+      <a v-if="modal.type == 'IMAGE' && is_url == true" v-bind:href="modal.content">{{ modal.content }}</a>
       <a v-if="modal.type == 'SOUND'" v-bind:href="modal.content">{{ modal.content }}</a>
       <a v-if="modal.type == 'YOUTUBE'" v-bind:href="'https://www.youtube.com/watch?v=' + modal.content">{{ 'https://www.youtube.com/watch?v=' + modal.content }}</a>
     </div>
@@ -49,6 +50,9 @@ export default {
         this.modal.content.includes('oog')? 'audio/ogg':
         'audio/wav'
       );
+    },
+    is_url: function() {
+      return ( this.modal.content.startsWith('http://') || this.modal.content.startsWith('https://') );
     }
   }
 }

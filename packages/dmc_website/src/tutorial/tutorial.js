@@ -558,7 +558,6 @@ let tuto_seq = {
     {
       "type": "SHOW QUOTE",
       "params": {
-        "face": null,
         "from": "Einstein",
         "content": "\tI am everywhere on the web\n"
       }

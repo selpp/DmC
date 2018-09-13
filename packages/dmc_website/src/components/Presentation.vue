@@ -1,7 +1,7 @@
 <template>
   <div id="presentation">
     <div id="code">
-      <pre v-highlightjs="code"><code></code></pre>
+      <pre v-highlightjs="code"><code :class="language"></code></pre>
       <div id="cover">
         <div v-for="(line, index) in lines" :key="index"
           v-bind:id="'l' + index"
@@ -32,18 +32,20 @@ import sound from '@/sound/sound';
 export default {
   name: 'Presentation',
   components: { Modal },
-  props: [ 'codes', 'sequences' ],
+  props: [ 'objects' ],
   data: function () {
     return {
       modal: null,
       highlights: null,
       auto: false,
       s_id: -1,
-      code: this.codes[Object.keys(this.codes)[0]],
+      code: this.objects.files[Object.keys(this.objects.files)[0]],
+      sequences: this.objects.dmc.sequences,
       processing: false,
       highlight: { opacity: 0 },
       hidden: { opacity: 0.8 },
-      elements: []
+      elements: [],
+      language: ''
     }
   },
   computed: {
@@ -56,13 +58,15 @@ export default {
     if(this.auto == true) { this.processing = true; this.do_next(); }
     this.elements = this.$refs['l'];
     this.move_to(0);
-    this.codes['error'] = 'No file loaded...';
   },
   methods: {
+    set_language: function(language) { this.language = language; },
     set_code: function(f_name) {
-      let c = null; c = this.codes[f_name];
+      let c = null; c = this.objects.files[f_name];
       if(c == null) c = 'File [' + f_name + '] does not exists or has not be found...';
       this.code = c;
+
+      this.set_language(this.determine_language(f_name));
     },
     move_to: function(index) {
       index--;
@@ -127,6 +131,28 @@ export default {
     do_sequence: function(s_id) { if(this.sequences[s_id].length > 0) { sound.play('NEXT_SEQUENCE'); this.do_action(s_id, 0); } else this.processing = false; },
     do_next: function() { if((this.s_id + 1) in this.sequences) { this.s_id++; this.do_sequence(this.s_id); } else this.processing = false; },
     do_previous: function() { if(this.s_id > 0) { this.s_id--; this.do_sequence(this.s_id); } else { this.s_id = -1; this.processing = false; this.reset_all(); } },
+
+    determine_language: function(f_name) {
+      if(f_name == '') return '';
+      if(f_name.endsWith('.md')) return 'markdown';
+      if(f_name.endsWith('.c')) return 'c';
+      if(f_name.endsWith('.h')) return 'h';
+      if(f_name.endsWith('.cpp')) return 'cpp';
+      if(f_name.endsWith('.hpp')) return 'hpp';
+      if(f_name.endsWith('.java')) return 'java';
+      if(f_name.endsWith('.js')) return 'javascript';
+      if(f_name.endsWith('.cs')) return 'csharp';
+      if(f_name.endsWith('.html')) return 'html';
+      if(f_name.endsWith('.css')) return 'css';
+      if(f_name.endsWith('.coffee')) return 'coffeescript';
+      if(f_name.endsWith('.py')) return 'python';
+      if(f_name.endsWith('.lua')) return 'lua';
+      if(f_name.endsWith('.d')) return 'd';
+      if(f_name.endsWith('.sql')) return 'sql';
+      if(f_name.endsWith('.sql')) return 'sql';
+      if(f_name.endsWith('.json')) return 'json';
+      if(f_name.endsWith('.scss')) return 'scss';
+    },
 
     scroll: function(y, duration) {
       let start = window.scrollY;
