@@ -1,16 +1,16 @@
 <template>
-  <Presentation v-if="presentation == true" :codes="sources_content" :sequences="script_content.sequences"/>
+  <Presentation v-if="presentation == true" :objects="objects"/>
   <div v-else id="session">
     <div id="session-container">
       <div>
-        <div v-if="source_stage == 0" class="stage-0">
-          <input name="sources" id="sources" type="file" @change="get_sources_files($event)" multiple/>
-          <label for="sources" @click="click" v-on:mouseover="hover">
-            <strong>sources</strong>
+        <div v-if="stage == null" class="stage-null">
+          <input name="zip" id="zip" type="file" @change="read_zip($event)" accept=".zip"/>
+          <label for="zip" @click="click" v-on:mouseover="hover">
+            <strong>zip</strong>
           </label>
         </div>
 
-        <div v-if="source_stage == 1" class="stage-1">
+        <div v-if="stage == 'loading'" class="stage-loading">
           <div class="lds-grid">
             <div></div><div></div><div></div>
             <div></div><div></div><div></div>
@@ -18,47 +18,28 @@
           </div>
         </div>
 
-        <div v-if="source_stage >= 2" class="stage-2">
+        <div v-if="stage == 'loaded' && objects.dmc.warnings.length <= 0" class="stage-loaded">
           <div>&#10004;</div>
         </div>
-      </div>
-
-      <div>
-        <div v-if="script_stage == 0" class="stage-0">
-          <input name="script" id="script" type="file" @change="get_script_file($event)" accept=".dmc"/>
-          <label for="script" @click="click" v-on:mouseover="hover">
-            <strong>script</strong>
-          </label>
-        </div>
-
-        <div v-if="script_stage == 1" class="stage-1">
-          <div class="lds-grid">
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-          </div>
-        </div>
-
-        <div v-if="script_stage >= 2" v-bind:class="(warnings)? 'stage-2-warnings': 'stage-2'">
-          <div>{{ (warnings)? '!' :'&#10004;' }}</div>
+        <div v-if="stage == 'loaded' && objects.dmc.warnings.length > 0" class="stage-warnings" @click="remove_warnings" v-on:mouseover="hover">
+          <div>!</div>
         </div>
       </div>
 
       <div>
         <transition name=slideright>
-        <div v-if="source_stage >= 2 && script_stage >= 2" class="stage-2-next"
-          @click="start_session" v-on:mouseover="hover">
-          <div><strong>&#10148;</strong></div>
-        </div>
-      </transition>
+          <div v-if="stage == 'loaded'" class="stage-next" @click="start_session" v-on:mouseover="hover">
+            <div><strong>&#10148;</strong></div>
+          </div>
+        </transition>
       </div>
     </div>
 
     <div id="session-warnings">
       <transition name=slide>
-        <div v-if="script_stage >= 2 && warnings">
+        <div v-if="stage == 'loaded' && objects.dmc.warnings.length > 0">
           <h2>Warnings</h2>
-          <p v-for="(wm, index) in warning_msgs" :key="index">{{ wm }}</p>
+          <p v-for="(wm, index) in warning_msg" :key="index">{{ wm }}</p>
         </div>
       </transition>
     </div>
@@ -67,8 +48,9 @@
 
 <script>
 const { compiler } = require('dmc_compiler');
-import sound from '@/sound/sound';
 import Presentation from '@/components/Presentation';
+import sound from '@/sound/sound';
+import { load } from '@/zip/zip';
 
 export default {
   name: 'Session',
@@ -76,42 +58,26 @@ export default {
   data: function() {
     return {
       presentation: false,
-      source_stage: 0, script_stage: 0, sources_content: null, script_content: null
+      stage: null, objects: null
     };
   },
   computed: {
-    warnings: function() { return this.script_content.warnings.length > 0; },
-    warning_msgs: function() {
-      if(this.warnings) return this.script_content.warnings.map((w) => { return w.modal; } );
+    warning_msg: function() {
+      if(this.objects.dmc.warnings) return this.objects.dmc.warnings.map((w) => { return w.modal; } );
       else return [];
     }
   },
   methods: {
+    remove_warnings: function() { this.click(); this.stage = null; this.objects = null; this.presentation = false; },
     hover: function() { sound.play('BUTTON_HOVER'); },
     click: function() { sound.play('BUTTON_CLICK'); },
-    get_sources_files: function(e) {
-      let files = e.target.files;
-      this.source_stage++;
-      setTimeout(() => {
-        this.sources_content = {};
-        for (let i = 0; i < files.length; i++) {
-          let file = files[i];
-          const reader = new FileReader();
-          reader.onload = e => { this.sources_content[file.name] = e.target.result; };
-          reader.readAsText(file);
-        }
-        setTimeout(() => { sound.play('LOADING'); this.source_stage++; }, files.length * 500);
-      }, 1000);
-    },
-    get_script_file: function(e) {
-      let file = e.target.files[0];
-      this.script_stage++;
-      setTimeout(() => {
-          const reader = new FileReader();
-          reader.onload = e => { this.script_content = compiler(e.target.result); };
-          reader.readAsText(file);
-          setTimeout(() => { sound.play((this.warnings)? 'FILE_WARNING' :'LOADING'); this.script_stage++; }, 1000);
-      }, 1000);
+    read_zip: function(e) {
+      let file = e.target.files[0]; this.stage = 'loading';
+      load(file).then(objects => {
+        objects.dmc = compiler(objects.dmc); this.objects = objects;
+        sound.play((objects.dmc.warnings.length > 0)? 'FILE_WARNING' :'LOADING');
+        this.stage = 'loaded';
+      }).catch(e => { sound.play('FILE_WARNING'); this.stage = null; });
     },
     start_session: function() {
       sound.play('LOADING');
@@ -142,7 +108,7 @@ export default {
   left: 0px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-content: center;
   background: linear-gradient(
@@ -198,35 +164,38 @@ input { width: 0px; height: 0px; opacity: 0; overflow: hidden; position: absolut
 input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inline-block;
   line-height: 250px; text-align: center; cursor: pointer; }
 
-.stage-0 { width: 250px; height: 250px; margin: auto;
+.stage-null { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
   font-size: 25px; font-weight: bold; text-transform: uppercase; color: #dadee7;
   border: solid 10px #3e19a7; border-radius: 25px; cursor: pointer; transition: 0.4s; }
-.stage-0:hover {
+.stage-null:hover {
   background-color: rgba(62, 25, 167, 0.5);
 }
 
-.stage-1 { width: 250px; height: 250px; margin: auto;
+.stage-loading { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
   border: solid 10px #193da7; border-radius: 25px; transition: 0.4s; }
 
-.stage-2 { width: 250px; height: 250px; margin: auto;
+.stage-loaded { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
   color: #dadee7; text-align: center;
   border: solid 10px #19a767; border-radius: 25px; transition: 0.4s; }
-.stage-2-warnings { width: 250px; height: 250px; margin: auto;
+.stage-warnings { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
-  color: #dadee7; text-align: center; font-weight: bold;
+  color: #dadee7; text-align: center; font-weight: bold; cursor: pointer;
   border: solid 10px #a75919; border-radius: 25px; transition: 0.4s;}
-.stage-2-next { width: 250px; height: 250px; margin: auto;
+.stage-warnings:hover {
+  background-color: rgba(167, 89, 25, 0.5);
+}
+.stage-next { width: 250px; height: 250px; margin: auto;
   display: flex; flex-direction: column; justify-content: center; align-content: center;
   color: #dadee7; text-align: center; cursor: pointer;
   border: solid 10px #3e19a7; border-radius: 25px; transition: 0.4s; }
-.stage-2-next:hover {
+.stage-next:hover {
   background-color: rgba(62, 25, 167, 0.5);
 }
 
-.stage-2 div { width: 100%; height: 100%; margin: 0px; padding: 0px;
+.stage-loaded div { width: 100%; height: 100%; margin: 0px; padding: 0px;
   display: grid; grid-template-columns: 1fr; justify-content: center; align-content: center;
   font-size: 120px; animation: stage-2 1.8s linear infinite; }
 @keyframes stage-2 {
@@ -234,7 +203,7 @@ input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inlin
   50% { font-size: 140px; }
 }
 
-.stage-2-warnings div { width: 100%; height: 100%; margin: 0px; padding: 0px;
+.stage-warnings div { width: 100%; height: 100%; margin: 0px; padding: 0px;
   display: grid; grid-template-columns: 1fr; justify-content: center; align-content: center;
   font-size: 110px; animation: stage-2-warnings 1.0s linear infinite; }
 @keyframes stage-2-warnings {
@@ -242,7 +211,7 @@ input + label { width: 100%; height: 100%; margin: 0; padding: 0; display: inlin
   50% { font-size: 130px; }
 }
 
-.stage-2-next div { width: 100%; height: 100%; margin: 0px; padding: 0px;
+.stage-next div { width: 100%; height: 100%; margin: 0px; padding: 0px;
   display: grid; grid-template-columns: 1fr; justify-content: center; align-content: center;
   font-size: 120px; animation: stage-2-next 1.8s linear infinite; pointer-events: none; }
 @keyframes stage-2-next {

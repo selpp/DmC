@@ -32,14 +32,15 @@ import sound from '@/sound/sound';
 export default {
   name: 'Presentation',
   components: { Modal },
-  props: [ 'codes', 'sequences' ],
+  props: [ 'objects' ],
   data: function () {
     return {
       modal: null,
       highlights: null,
       auto: false,
       s_id: -1,
-      code: this.codes[Object.keys(this.codes)[0]],
+      code: this.objects.files[Object.keys(this.objects.files)[0]],
+      sequences: this.objects.dmc.sequences,
       processing: false,
       highlight: { opacity: 0 },
       hidden: { opacity: 0.8 },
@@ -57,12 +58,11 @@ export default {
     if(this.auto == true) { this.processing = true; this.do_next(); }
     this.elements = this.$refs['l'];
     this.move_to(0);
-    this.codes['error'] = 'No file loaded...';
   },
   methods: {
     set_language: function(language) { this.language = language; },
     set_code: function(f_name) {
-      let c = null; c = this.codes[f_name];
+      let c = null; c = this.objects.files[f_name];
       if(c == null) c = 'File [' + f_name + '] does not exists or has not be found...';
       this.code = c;
 

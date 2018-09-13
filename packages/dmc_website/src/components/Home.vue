@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <section id="dmc" :style="dmc">
+    <section id="dmc">
       <div id="dmc-title">
         <h1>DmC</h1>
         <div id="dmc-sub">
